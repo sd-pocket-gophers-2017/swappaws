@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-  def profile
+  def show
     current_user
   end
-  
+
 end
