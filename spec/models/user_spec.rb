@@ -1,5 +1,31 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  user = User.create!(first_name: "Blake", last_name: "Meyer", email: Faker::Internet.email, password: "password")
+  
+  describe "user creation" do 
+    it "encrypts the password on user creation" do 
+      expect(user.encrypted_password).to_not eq("password")
+    end
+
+    it "checks whether it is a valid password" do 
+      expect(user.password).to eq("password")
+    end
+  end
+
+  describe "#valid?" do 
+    context "when its email is nil" do
+      it "is not valid" do 
+        user.email = nil
+        expect(user).to_not be_valid
+      end 
+    end
+
+    context "when password is nil" do 
+      it "it not valid" do 
+        user.password = nil
+        expect(user).to_not be_valid
+      end
+    end
+  end
 end
