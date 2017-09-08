@@ -32,6 +32,18 @@ ActiveRecord::Schema.define(version: 20170908052604) do
     t.integer "user_id"
   end
 
+  create_table "pets", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name", null: false
+    t.integer "age", null: false
+    t.string "breed", null: false
+    t.string "size", null: false
+    t.text "description", null: false
+    t.text "photos", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
