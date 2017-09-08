@@ -20,6 +20,7 @@
     <li>Name: <%= link_to("#{pet.name}", pet_path(pet)) %></li>
     <li>Description: <%= pet.description %></li>
     <li>Photo: <%= pet.photos %></li>
+    <li><%= link_to('Update Pet', edit_pet_path(pet)) %></li>
     <% end %>
   <% else %>
     <li>You have not added any pets yet! Click <%= link_to('here', new_pet_path) %> to add a new pet</li>
