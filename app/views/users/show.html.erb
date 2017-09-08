@@ -2,12 +2,28 @@
 
 <h3><strong>My events</strong></h3>
 <ul>
-  <li>put upcoming events here... maybe consider renaming events to something else</li>
+  <% if current_user.events.any? %>
+    <% current_user.events.each do |event| %>
+    <li><%= event.location %></li>
+    <li><%= date_time_helper(event.start_date_time) %></li>
+    <li><%= date_time_helper(event.end_date_time) %></li>
+    <% end %>
+  <% else %>
+    <li>You have not signed up for any events yet! Click <%= link_to('here', events_path) %> to see all the available events</li>
+  <% end %>
 </ul>
 
-<h3><strong>My dogs</strong></h3>
+<h3><strong>My pets</strong></h3>
 <ul>
-  <li>List the users dogs here</li>
+  <% if current_user.pets.any? %>
+    <% current_user.pets.each do |pet| %>
+    <li>Name: <%= link_to("#{pet.name}", pet_path(pet)) %></li>
+    <li>Description: <%= pet.description %></li>
+    <li>Photo: <%= pet.photos %></li>
+    <% end %>
+  <% else %>
+    <li>You have not added any pets yet! Click <%= link_to('here', new_pet_path) %> to add a new pet</li>
+  <% end %>
 </ul>
 
 <%= link_to('Create New Event', new_event_path) %>
