@@ -12,6 +12,7 @@
     <nav>
       <ul>
         <li><%= link_to('Home', pets_path) %></li>
+        <li><%= link_to('Current Events', events_path) %></li>
         <% if user_signed_in? %>
         <li><%= link_to("#{current_user.first_name}", profile_path) %></li>
         <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
