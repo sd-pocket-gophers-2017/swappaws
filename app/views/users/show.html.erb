@@ -1,1 +1,13 @@
-<%= current_user.first_name %>
+<h2>Welcome, <%= current_user.first_name %>!</h2>
+
+<h3><strong>My events</strong></h3>
+<ul>
+  <li>put upcoming events here... maybe consider renaming events to something else</li>
+</ul>
+
+<h3><strong>My dogs</strong></h3>
+<ul>
+  <li>List the users dogs here</li>
+</ul>
+
+<%= link_to('Create New Event', new_event_path) %>
