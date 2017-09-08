@@ -1,7 +1,10 @@
 class PetsController < ApplicationController
 
   def index
-    @pets = current_user.pets
+    #Setting dogs index to display all dogs. This will be the default until we 
+    #decide otherwise. 
+    # @pets = current_user.pets
+    @pets = Pet.all
   end
 
   def show
