@@ -6,7 +6,7 @@ Event.destroy_all
 Participant.destroy_all
 
 15.times do
-  User.create!(email: Faker::Internet.email, password: "password")
+  User.create!(email: Faker::Internet.email, password: "password", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
 end
 
 15.times do
@@ -14,5 +14,5 @@ end
 end
 
 15.times do
-  Participant.create!(role_id: [1,2].sample, event_id: rand(1..15), user_id: randrand(1..15))
+  Participant.create!(role_id: [1,2].sample, event_id: rand(1..15), user_id: rand(1..15))
 end
