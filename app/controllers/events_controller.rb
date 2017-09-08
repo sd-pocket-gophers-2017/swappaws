@@ -6,7 +6,7 @@ class EventsController < ApplicationController
 
 # Only if logged in
   def create
-    @event = Event.new(params[:event])
+    @event = Event.new(event_params)
     if @event.save
       redirect_to events_path(@event)
     else
@@ -32,7 +32,7 @@ class EventsController < ApplicationController
   end
 
   private
-    # def event_params
-    #   params.require(:event).permit(:start_date_time, :location)
-    # end
+    def event_params
+      params.require(:event).permit(:location, :start_date_time, :end_date_time)
+    end
 end
