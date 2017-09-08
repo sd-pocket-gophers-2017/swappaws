@@ -1,10 +1,5 @@
-<%= render :partial => 'errors', :locals => {:title => "Errors"} %>
+<h1>New Event</h1>
 
-<h2> New Event </h2>
+<%= render 'form' %>
 
-  <%=form_for @event do |f| %>
-    <%= render :partial => 'form'%>
-    <% end %>
-<%=# form_tag('/events', method: 'post') do #%>
-<%=## rend :partial => 'form' #%>
-<%# end %>
+<%= link_to 'Back', profile_path %>

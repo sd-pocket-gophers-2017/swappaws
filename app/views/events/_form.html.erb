@@ -1,17 +1,39 @@
-<div>
-  <div>
-    <%= f.label :location %>
+<%= form_for @event do |f| %>
+
+<%= f.hidden_field :user_id, value: current_user.id %>
+  
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@event.errors.count, "error") %> prohibited
+        this event from being saved:
+      </h2>
+      <ul>
+        <% @event.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :location %><br>
     <%= f.text_field :location %>
-  </div>
-  <br>
-  <div>
+  </p>
+
+  <p>
+    <%= f.label :start_time %><br>
     <%= f.date_select  :start_date_time %>
     <%= f.time_select :start_date_time, :ignore_date => true %>
-  </div>
-  <br>
-  <div>
-    <%= f.label :location %>
-    <%= f.text_field :location %>
+  </p>
+
+  <p>
+    <%= f.label :end_time %><br>
+    <%= f.date_select  :end_date_time %>
+    <%= f.time_select :end_date_time, :ignore_date => true %>
+  </p>
+
+  <p>
     <%= f.submit %>
-  </div>
-  </div>
+  </p>
+<% end %>
