@@ -1,5 +1,10 @@
 class EventsController < ApplicationController
 
+  def index
+    #Didn't know you could do Event.order without calling all, cool!
+    @events = Event.order(:start_date_time)
+  end
+
   def new
     @event = Event.new
   end

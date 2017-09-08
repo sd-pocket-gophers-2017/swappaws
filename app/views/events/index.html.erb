@@ -1,0 +1,9 @@
+<h2>Upcoming Events</h2>
+
+<ul>
+<% @events.each do |event| %>
+  <li>Location: <%= event.location %></li>
+  <li>Start Date: <%= date_time_helper(event.start_date_time) %></li>
+  <li>End Date: <%= date_time_helper(event.end_date_time) %></li><br>
+<% end %>
+</ul>
