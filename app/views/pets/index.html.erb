@@ -2,7 +2,7 @@
 <br>
 <ul>
 <% @pets.each do |pet| %>
-  <li>Name: <strong><%= pet.name %></strong></li>
+  <li>Name: <strong><%= link_to("#{pet.name}", pet_path(pet)) %></strong></li>
   <li>Age: <%= pet.age %></li>
   <li>Breed: <%= pet.breed %></li>
   <li>Size: <%= pet.size %></li>
