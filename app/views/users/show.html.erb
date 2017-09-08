@@ -8,6 +8,7 @@
     <li><%= date_time_helper(event.start_date_time) %></li>
     <li><%= date_time_helper(event.end_date_time) %></li>
     <li><%= link_to('Update Event', edit_event_path(event)) %></li>
+    <li><%= link_to('See more...', event_path(event)) %></li><br>
     <% end %>
   <% else %>
     <li>You have not signed up for any events yet! Click <%= link_to('here', events_path) %> to see all the available events</li>
