@@ -4,6 +4,14 @@ RSpec.describe User, type: :model do
   user = User.create!(first_name: "Blake", last_name: "Meyer", email: Faker::Internet.email, password: "password")
   
   describe "user creation" do 
+    it "has a readable first name" do 
+      expect(user.first_name).to eq("Blake")
+    end
+
+    it "has a readable last name" do 
+      expect(user.last_name).to eq("Meyer")
+    end
+
     it "encrypts the password on user creation" do 
       expect(user.encrypted_password).to_not eq("password")
     end
