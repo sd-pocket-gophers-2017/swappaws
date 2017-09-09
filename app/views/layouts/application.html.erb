@@ -16,18 +16,21 @@
 
   <body>
     <div class="container">
-      <nav class="navbar">
-        <ul>
-          <li><%= link_to('Home', pets_path) %></li>
-          <li><%= link_to('Current Events', events_path) %></li>
-          <% if user_signed_in? %>
-          <li><%= link_to("#{current_user.first_name}", profile_path) %></li>
-          <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
-          <% else %>
-          <li><%= link_to('Login', new_user_session_path) %></li>
-          <li><%= link_to('Sign Up', new_user_registration_path) %></li>
-          <% end %>
-        </ul>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo"><i class="material-icons">  </i>Swap Paws</a>
+          <ul class="right hide-on-med-and-down">
+            <li><%= link_to('Home', pets_path) %></li>
+            <li><%= link_to('Current Events', events_path) %></li>
+            <% if user_signed_in? %>
+            <li><%= link_to("#{current_user.first_name}", profile_path) %></li>
+            <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+            <% else %>
+            <li><%= link_to('Login', new_user_session_path) %></li>
+            <li><%= link_to('Sign Up', new_user_registration_path) %></li>
+            <% end %>
+          </ul>
+        </div>
       </nav>
     <%= yield %>
     </div>

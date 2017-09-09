@@ -19,5 +19,5 @@ end
 end
 
 15.times do
-  Pet.create!(name: Faker::Hobbit.character, age: rand(1..10), breed: Faker::Cat.breed, description: Faker::MostInterestingManInTheWorld.quote, size: ["s", "m", "l"].sample, photos: Faker::Overwatch.quote, user_id: User.all.pluck(:id).sample)
+  Pet.create!(name: Faker::Hobbit.character, age: rand(1..10), breed: Faker::Cat.breed, description: Faker::MostInterestingManInTheWorld.quote, size: ["Small", "Medium", "Large"].sample, photos: Faker::Overwatch.quote, user_id: User.all.pluck(:id).sample)
 end
