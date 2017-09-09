@@ -30,15 +30,6 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    # puts "-----------------------------"
-    # puts current_user.id
-    # puts "-----------------------------"
-    # if current_user.id != @event.sitter_id
-    #   @event.owner_id = current_user.id
-    # puts "-----------------------------"
-    # puts @event.owner_id
-    # puts "-----------------------------"
-    # end
     if @event.update(event_params)
       redirect_to @event
     else
