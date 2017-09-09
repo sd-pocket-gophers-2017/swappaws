@@ -3,7 +3,6 @@ require 'faker'
 
 User.destroy_all
 Event.destroy_all
-Participant.destroy_all
 Pet.destroy_all
 
 15.times do
@@ -11,11 +10,7 @@ Pet.destroy_all
 end
 
 15.times do
-  Event.create!(start_date_time: Faker::Time.forward(2, :morning), end_date_time: Faker::Time.forward(6, :evening), location: Faker::Address.street_address, user_id: User.all.pluck(:id).sample)
-end
-
-15.times do
-  Participant.create!(role_id: [1,2].sample, event_id: Event.all.pluck(:id).sample, user_id: User.all.pluck(:id).sample)
+  Event.create!(sitter_id: User.all.pluck(:id).sample, owner_id: nil, start_date_time: Faker::Time.forward(2, :morning), end_date_time: Faker::Time.forward(6, :evening), location: Faker::Address.street_address)
 end
 
 15.times do
