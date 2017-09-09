@@ -1,6 +1,6 @@
 <h2>Welcome, <%= current_user.first_name %>!</h2>
 
-<h3><strong>My events</strong></h3>
+<h3><strong>My sittings</strong></h3>
 <ul>
   <% @events.each do |event| %>
   <% if event.sitter_id == current_user.id %>
@@ -8,6 +8,18 @@
     <li><%= date_time_helper(event.start_date_time) %></li>
     <li><%= date_time_helper(event.end_date_time) %></li>
     <li><%= link_to('Update Event', edit_event_path(event)) %></li>
+    <li><%= link_to('See more...', event_path(event)) %></li><br>
+  <% end %>
+<% end %>
+</ul>
+
+<h3><strong>My sitters</strong></h3>
+<ul>
+  <% @events.each do |event| %>
+  <% if event.owner_id == current_user.id %>
+    <li><%= event.location %></li>
+    <li><%= date_time_helper(event.start_date_time) %></li>
+    <li><%= date_time_helper(event.end_date_time) %></li>
     <li><%= link_to('See more...', event_path(event)) %></li><br>
   <% end %>
 <% end %>
