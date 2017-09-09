@@ -1,12 +1,17 @@
 class EventsController < ApplicationController
 
+  def index
+    #Didn't know you could do Event.order without calling all, cool!
+    @events = Event.order(:start_date_time)
+  end
+
   def new
     @event = Event.new
   end
 
 # Only if logged in
   def create
-    @event = Event.new(params[:event])
+    @event = Event.new(event_params)
     if @event.save
       redirect_to events_path(@event)
     else
@@ -24,15 +29,15 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    if @event.update(params[:id])
-      redirect_to events_path
+    if @event.update(event_params)
+      redirect_to @event
     else
       render 'edit'
     end
   end
 
   private
-    # def event_params
-    #   params.require(:event).permit(:start_date_time, :location)
-    # end
+    def event_params
+      params.require(:event).permit(:user_id, :location, :start_date_time, :end_date_time)
+    end
 end

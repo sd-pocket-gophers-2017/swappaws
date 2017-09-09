@@ -1,7 +1,10 @@
 class PetsController < ApplicationController
 
   def index
-    @pets = current_user.pets
+    #Setting dogs index to display all dogs. This will be the default until we 
+    #decide otherwise. 
+    # @pets = current_user.pets
+    @pets = Pet.all
   end
 
   def show
@@ -43,6 +46,6 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(:name, :age, :breed, :size, :description, :photos)
+    params.require(:pet).permit(:user_id, :name, :age, :breed, :size, :description, :photos)
   end
 end

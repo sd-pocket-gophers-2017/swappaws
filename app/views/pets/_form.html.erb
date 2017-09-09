@@ -1,0 +1,52 @@
+<%= form_for @pet do |f| %>
+
+<%= f.hidden_field :user_id, value: current_user.id %>
+  
+  <% if @pet.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@pet.errors.count, "error") %> prohibited
+        this pet from being saved:
+      </h2>
+      <ul>
+        <% @pet.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :age %><br>
+    <%= f.number_field :age %>
+  </p>
+
+  <p>
+    <%= f.label :breed %><br>
+    <%= f.text_field :breed %>
+  </p>
+
+  <p>
+    <%= f.label :size %><br>
+    <%= f.text_field :size %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </p>
+  <%# This will need to be adjusted in both the migration and this form field for images%>
+  <p>
+    <%= f.label :photos %><br>
+    <%= f.text_field :photos %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
