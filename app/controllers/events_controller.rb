@@ -21,6 +21,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @sitter = User.find_by(id: @event.sitter_id)
   end
 
   def edit
@@ -29,6 +30,15 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
+    # puts "-----------------------------"
+    # puts current_user.id
+    # puts "-----------------------------"
+    # if current_user.id != @event.sitter_id
+    #   @event.owner_id = current_user.id
+    # puts "-----------------------------"
+    # puts @event.owner_id
+    # puts "-----------------------------"
+    # end
     if @event.update(event_params)
       redirect_to @event
     else
@@ -38,6 +48,6 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:user_id, :location, :start_date_time, :end_date_time)
+      params.permit(:sitter_id, :location, :start_date_time, :end_date_time, :owner_id)
     end
 end
