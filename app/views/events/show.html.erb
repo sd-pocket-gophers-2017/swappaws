@@ -1,6 +1,8 @@
 <h2><%= @event.location %></h2>
 
 <ul>
+  <li>Event Creator: <%= @sitter.first_name %></li>
   <li>Start Date: <%= date_time_helper(@event.start_date_time) %></li>
   <li>End Date: <%= date_time_helper(@event.end_date_time) %></li><br>
+  <%= link_to 'Book Now!', event_path(@event, owner_id: current_user.id), method: :put, onclick: "alert('Booking Confirmed!')" %>
 </ul>

@@ -1,5 +1,3 @@
 class Event < ApplicationRecord
-  belongs_to :user
-  has_many :participants
-  has_many :pets, through: :user
+  belongs_to :user, optional: true
 end

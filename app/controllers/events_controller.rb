@@ -21,6 +21,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @sitter = User.find_by(id: @event.sitter_id)
   end
 
   def edit
@@ -38,6 +39,6 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:user_id, :location, :start_date_time, :end_date_time)
+      params.permit(:sitter_id, :location, :start_date_time, :end_date_time, :owner_id)
     end
 end
