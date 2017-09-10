@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+
   belongs_to :user
   has_many :participants
   has_many :pets, through: :user
@@ -15,4 +16,7 @@ class Event < ApplicationRecord
   def future_date
     errors.add( :start_date_time, "can't be in the past") if start_date_time && start_date_time < DateTime.now
   end
+
+  belongs_to :user, optional: true
+
 end
