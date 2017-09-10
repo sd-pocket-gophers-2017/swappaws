@@ -5,7 +5,7 @@ module EventsHelper
   end
 
   def available?(event)
-    event.owner_id == nil
+    event.owner == nil
   end
 
 end
