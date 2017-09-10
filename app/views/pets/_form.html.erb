@@ -1,15 +1,15 @@
-<%= form_for @pet do |f| %>
+<%= form_for @review do |f| %>
 
 <%= f.hidden_field :user_id, value: current_user.id %>
   
-  <% if @pet.errors.any? %>
+  <% if @review.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@pet.errors.count, "error") %> prohibited
+        <%= pluralize(@review.errors.count, "error") %> prohibited
         this pet from being saved:
       </h2>
       <ul>
-        <% @pet.errors.full_messages.each do |msg| %>
+        <% @review.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
@@ -17,7 +17,7 @@
   <% end %>
 
   <p>
-    <%= f.label :name %><br>
+    <%= f.label :body %><br>
     <%= f.text_field :name %>
   </p>
 
