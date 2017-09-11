@@ -7,7 +7,6 @@ class CreatePets < ActiveRecord::Migration[5.1]
       t.string :breed, null: false
       t.string :size, null: false
       t.text :description, null: false
-      t.text :photos, null: false
 
       t.timestamps
     end

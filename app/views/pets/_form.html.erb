@@ -33,7 +33,7 @@
 
   <p>
     <%= f.label :size %><br>
-    <%= f.text_field :size %>
+    <%= f.select :size, ['small', 'medium', 'large', 'very large', 'Clifford']%>
   </p>
 
   <p>
@@ -42,9 +42,8 @@
   </p>
   <%# This will need to be adjusted in both the migration and this form field for images%>
   <p>
-    <%= f.label :photos %>
-    <%= f.file_field :photos %>
-    
+    <%= f.label :photo %>
+    <%= f.file_field :photo %>
   </p>
 
   <p>
