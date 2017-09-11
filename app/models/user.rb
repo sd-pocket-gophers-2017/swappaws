@@ -6,5 +6,7 @@ class User < ApplicationRecord
   has_many :pets
   has_many :events
   validates :first_name, :last_name, presence: true
+  has_many :reviews, through: :events
+  has_many :
 
 end
