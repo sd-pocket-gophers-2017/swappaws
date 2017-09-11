@@ -7,13 +7,10 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :events do
-    put :book, on: :member
-  end
-
   resources :pets
 
   resources :events do
     resources :reviews, shallow: true
+    put :book, on: :member
   end
 end
