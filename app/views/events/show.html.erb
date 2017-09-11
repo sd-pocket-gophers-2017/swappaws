@@ -10,6 +10,6 @@
     <p>It looks like you're all out of tokens! Purchase more if you want to book another sitting</p>
     <%= link_to 'Purchase tokens', purchase_path %>
   <% else %>
-    <p><%= link_to 'Create a user account', new_user_registration_path %> to book this sitting!</p>
+    <p><%= link_to 'Create a user account', new_user_registration_path %> or <%= link_to 'login', new_user_session_path %> to book this sitting!</p>
   <% end %>
 </ul>
