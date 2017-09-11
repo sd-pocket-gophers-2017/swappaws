@@ -25,6 +25,6 @@ class ReviewsController < ApplicationController
 
   private
     def review_params
-      params.require(:event).permit(:sitter_id, :location, :start_date_time, :end_date_time, :owner_id)
+      params.require(:review).permit(:body)
     end
   end
