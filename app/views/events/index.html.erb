@@ -1,12 +1,32 @@
-<h2>Upcoming Events</h2>
+<div class="row">
+  <div class="col s12 m10 l10 offset-l1">
+    <h2 class="flow-text teal-text">Upcoming Events</h2>
+    <div class="card teal lighten-4">
+     <div class="card-content teal-text">
+    <table class="teal-text">
+      <thead>
+        <tr>
+          <th class="flow-text">Location</th>
+          <th class="flow-text">Start Date</th>
+          <th class="flow-text">End Time</th>
+        </tr>
+      </thead>
+    </table>
+			<% @events.each do |event| %>
+		 		<table class="striped">
+			 		<tbody>
+				 		<tr>
+						  <td> <%= event.location %></td>
+						  <td> <%= date_time_helper(event.start_date_time) %></td>
+						  <td><%= date_time_helper(event.end_date_time) %></td>
+						  <div class="class-action ">
+						    <td><%= link_to('Details', event_path(event), ) %></td>
+						  </div>
+						 </tr>
+					</tbody>
+					<br>
+			<% end %>
+		</table>
+	</div>
+</div>
 
-<ul>
-<% @events.each do |event| %>
-  <% if available?(event) %>
-    <li>Location: <%= event.location %></li>
-    <li>Start Date: <%= date_time_helper(event.start_date_time) %></li>
-    <li>End Date: <%= date_time_helper(event.end_date_time) %></li>
-    <li><%= link_to('See more...', event_path(event)) %></li><br>
-  <% end %>
-<% end %>
-</ul>
