@@ -7,6 +7,7 @@
   <% if current_user.tokens >= 1 %>
     <%= link_to 'Book Now!', book_event_path(@event), method: :put, onclick: "alert('Booking Confirmed! #{current_user.tokens - 1} tokens remaining')" %>
   <% else %>
-    <p>it looks like youre a fuckboi</p>
+    <p>It looks like you're all out of tokens! Purchase more if you want to book another sitting</p>
+    <%= link_to 'Purchase tokens', purchase_path %>
   <% end %>
 </ul>
