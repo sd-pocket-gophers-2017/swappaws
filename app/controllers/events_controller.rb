@@ -31,6 +31,13 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update(event_params)
+      "BEFORE DECREMENT"
+      puts current_user.tokens
+      "----------------"
+      "AFTER"
+      current_user.tokens -= 1
+      puts current_user.tokens
+      "----------------"
       redirect_to @event
     else
       render 'edit'
