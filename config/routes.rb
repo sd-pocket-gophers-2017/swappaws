@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get '/profile' => 'users#show', :as => :profile
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :events
   resources :pets
 
+  resources :events do
+    resources :reviews, shallow: true
+  end
 end
