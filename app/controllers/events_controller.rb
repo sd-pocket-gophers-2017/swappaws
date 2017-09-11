@@ -1,5 +1,9 @@
 class EventsController < ApplicationController
 
+  def success
+    render 'success'
+  end
+
   def index
     #Didn't know you could do Event.order without calling all, cool!
     @events = Event.order(:start_date_time)
@@ -31,21 +35,25 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update(event_params)
-      "BEFORE DECREMENT"
-      puts current_user.tokens
-      "----------------"
-      "AFTER"
-      current_user.tokens -= 1
-      puts current_user.tokens
-      "----------------"
       redirect_to @event
     else
       render 'edit'
     end
   end
 
+  def book
+    @event = Event.find(params[:id])
+    if @event.owner_id == nil
+      @event.owner_id = current_user.id
+      @event.save
+      redirect_to success_path
+    else
+      render 'show'
+    end
+  end
+
   private
     def event_params
-      params.permit(:sitter_id, :location, :start_date_time, :end_date_time, :owner_id)
+      params.require(:event).permit(:sitter_id, :location, :start_date_time, :end_date_time, :owner_id)
     end
 end
