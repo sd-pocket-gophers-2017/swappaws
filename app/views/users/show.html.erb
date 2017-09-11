@@ -1,5 +1,7 @@
 <h2>Welcome, <%= current_user.first_name %>!</h2>
 
+<p>Tokens remaing: <strong><%= "\u{1f31f}" * current_user.tokens %></strong></p>
+
 <h3><strong>My sittings</strong></h3>
 <ul>
   <% @events.each do |event| %>
