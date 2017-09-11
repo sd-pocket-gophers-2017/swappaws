@@ -43,8 +43,11 @@ class EventsController < ApplicationController
 
   def book
     @event = Event.find(params[:id])
+    @user = current_user
     if @event.owner_id == nil
       @event.owner_id = current_user.id
+      @user.tokens -= 1
+      @user.save
       @event.save
       redirect_to success_path
     else
