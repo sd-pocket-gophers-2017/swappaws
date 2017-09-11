@@ -1,5 +1,9 @@
 class EventsController < ApplicationController
 
+  def success
+    render 'success'
+  end
+
   def index
     #Didn't know you could do Event.order without calling all, cool!
     @events = Event.order(:start_date_time)
@@ -34,6 +38,17 @@ class EventsController < ApplicationController
       redirect_to @event
     else
       render 'edit'
+    end
+  end
+
+  def book
+    @event = Event.find(params[:id])
+    if @event.owner_id == nil
+      @event.owner_id = current_user.id
+      @event.save
+      redirect_to success_path
+    else
+      render 'show'
     end
   end
 
