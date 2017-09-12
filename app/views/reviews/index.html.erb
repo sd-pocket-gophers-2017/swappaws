@@ -1,0 +1,7 @@
+<h2>My Reviews</h2>
+
+<ul>
+  <% @event.reviews.each do |review| %>
+    <li><%= review.body %></li>
+  <% end %>
+</ul>
