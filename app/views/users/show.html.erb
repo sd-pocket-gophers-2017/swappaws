@@ -9,6 +9,9 @@
     <li><%= event.location %></li>
     <li><%= date_time_helper(event.start_date_time) %></li>
     <li><%= date_time_helper(event.end_date_time) %></li>
+    <% unless Review.find_by(event: event, type_reviews: 'owner') %>
+      <li> <%= link_to('Review', new_event_review_path(event)) %></li>
+    <% end %>
     <li><%= link_to('Update Event', edit_event_path(event)) %></li>
     <li><%= link_to('See more...', event_path(event)) %></li><br>
   <% end %>
@@ -24,6 +27,9 @@
     <li>Sitter email: <%= sitter.email %></li>
     <li>Address: <%= event.location %></li>
     <li>Sitting from <%= date_time_helper(event.start_date_time) %> to <%= date_time_helper(event.end_date_time) %></li>
+    <% unless Review.find_by(event: event, type_reviews: 'sitter') %>
+      <li> <%= link_to('Review', new_event_review_path(event)) %></li>
+    <% end %>
     <li><%= link_to('See more...', event_path(event)) %></li><br>
   <% end %>
 <% end %>

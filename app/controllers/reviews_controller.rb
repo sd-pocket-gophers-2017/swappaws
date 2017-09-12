@@ -1,11 +1,12 @@
 class ReviewsController < ApplicationController
 
   def new
+    @event = Event.find(params[:event_id])
     @review = Review.new
   end
 
   def index
-    @event = Event.find(:event_id)
+    @event = Event.find(params[:event_id])
     @review = Review.order(:created_at)
   end
 
@@ -14,10 +15,11 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @event = Event.find(:event_id)
+    @event = Event.find(params[:event_id])
     @review = Review.new(review_params)
+    @review.event = @event
     if @review.save
-      redirect_to events_path(@review)
+      redirect_to event_reviews_path(@event)
     else
       render 'new'
     end

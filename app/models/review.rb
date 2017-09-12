@@ -1,6 +1,5 @@
 class Review < ApplicationRecord
   belongs_to :event
-  # belongs_to :user, through: :events
-  # belongs_to :sitter, through: :events
-  # belongs_to :owner, through: :events
+  has_many :sitters, through: :events
+  has_many :owners, through: :events
 end
