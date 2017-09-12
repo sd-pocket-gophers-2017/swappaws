@@ -12,10 +12,12 @@ Rails.application.routes.draw do
   # get '/success' => 'events#success'
   get '/purchase' => 'users#purchase'
   patch '/update_tokens' => 'users#update_tokens'
+  # get '/confirmation' => 'events#confirmation'
 
   resources :events do
     resources :reviews, shallow: true
     put :book, on: :member
     get :success, on: :member
+    get :confirmation, on: :member
   end
 end

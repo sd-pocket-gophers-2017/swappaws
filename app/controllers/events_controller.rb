@@ -51,19 +51,25 @@ class EventsController < ApplicationController
 
   def book
     @event = Event.find(params[:id])
-    @user = current_user
+    # @user = current_user
     if @event.owner_id == nil
-      @sitter = User.find_by(id: @event.sitter_id)
-      @event.owner_id = current_user.id
-      @user.tokens -= 1
-      @sitter.tokens += 1
-      @user.save
-      @sitter.save
+      # @sitter = User.find_by(id: @event.sitter_id)
+      @event.pending_ids << current_user.id
+      # @user.tokens -= 1
+      # @sitter.tokens += 1
+      # @user.save
+      # @sitter.save
       @event.save
-      redirect_to success_event_path
+      redirect_to confirmation_event_path
     else
       render 'show'
     end
+  end
+
+  def confirmation
+    @event = Event.find(params[:id])
+    @sitter = User.find(@event.sitter_id)
+    render 'confirmation'
   end
 
   private
