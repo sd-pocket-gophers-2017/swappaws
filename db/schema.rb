@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911231525) do
+ActiveRecord::Schema.define(version: 20170912163805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,9 +32,12 @@ ActiveRecord::Schema.define(version: 20170911231525) do
     t.string "breed", null: false
     t.string "size", null: false
     t.text "description", null: false
-    t.text "photos", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -62,6 +65,10 @@ ActiveRecord::Schema.define(version: 20170911231525) do
     t.string "first_name"
     t.string "last_name"
     t.integer "tokens", default: 3
+    t.string "profile_photo_file_name"
+    t.string "profile_photo_content_type"
+    t.integer "profile_photo_file_size"
+    t.datetime "profile_photo_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

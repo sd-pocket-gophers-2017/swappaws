@@ -4,5 +4,5 @@
   <li>Breed: <%= @pet.breed %></li>
   <li>Size: <%= @pet.size %></li>
   <li>Description: <%= @pet.description %></li>
-  <li>Photos: <%= @pet.photos %></li>
+  <%= image_tag @pet.photo.url(:medium) %>
 </ul>
