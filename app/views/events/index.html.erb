@@ -1,5 +1,7 @@
 <h2>Upcoming Events</h2>
 
+<%= render 'filter' %>
+
 <ul>
 <% @events.each do |event| %>
   <% if available?(event) %>
