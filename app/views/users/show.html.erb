@@ -2,20 +2,6 @@
 
 <p>Tokens remaing: <strong><%= "\u{1f31f}" * current_user.tokens %></strong></p>
 
-<% @events_as_sitter.each do |event| %>
-  <% if event.pending_ids.any? %>
-  <h3>Booking request requires your attention!</h3>
-  <ul>
-    <li><%= event.location %></li>
-    <% event.pending_ids.each do |owner_id| %>
-      <% owner = User.find(owner_id) %>
-      <li><%= owner.first_name %></li>
-    <% end %>
-  </ul>
-  <% end %>
-<% end %>
-
-
 <% if @events_as_sitter.any? %>
   <h3><strong>My sittings</strong></h3>
   <ul>
