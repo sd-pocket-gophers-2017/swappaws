@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20170912163805) do
     t.string "breed", null: false
     t.string "size", null: false
     t.text "description", null: false
+    t.text "photos", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo_file_name"

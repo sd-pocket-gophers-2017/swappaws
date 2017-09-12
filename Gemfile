@@ -35,8 +35,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'dotenv'
 gem 'devise'
 #for photos to work make sure you have imagemagick installed
-gem 'paperclip'
-gem 'aws-sdk', '~> 2.3'
+gem 'paperclip', '~> 5.1'
+gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
