@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :reviews, shallow: true
+    resources :requests, shallow: true
     put :book, on: :member
     get :success, on: :member
     get :confirmation, on: :member
