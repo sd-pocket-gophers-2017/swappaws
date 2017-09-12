@@ -4,8 +4,7 @@
 
 <h3><strong>My sittings</strong></h3>
 <ul>
-  <% @events.each do |event| %>
-  <% if event.sitter_id == current_user.id %>
+  <% @event_as_sitter.each do |event| %>
     <li><%= event.location %></li>
     <li><%= date_time_helper(event.start_date_time) %></li>
     <li><%= date_time_helper(event.end_date_time) %></li>
@@ -20,8 +19,7 @@
 
 <h3><strong>My sitters</strong></h3>
 <ul>
-  <% @events.each do |event| %>
-  <% if event.owner_id == current_user.id %>
+  <% @event_as_owners.each do |event| %>
     <% sitter = User.find(event.sitter_id) %>
     <li>Sitter: <%= sitter.first_name %> <%= sitter.last_name %></li>
     <li>Sitter email: <%= sitter.email %></li>
