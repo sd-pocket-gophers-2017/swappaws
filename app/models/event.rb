@@ -3,6 +3,6 @@ class Event < ApplicationRecord
   belongs_to :owner, class_name: :User, optional: true
   has_many :reviews
 
-  scope :closed, -> { where( 'DateTime.now > ?', :end_date_time ) }
+  scope :closed, -> { where( 'end_date_time < ?', DateTime.now ) }
 
 end

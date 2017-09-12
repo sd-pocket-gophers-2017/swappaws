@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
 
   def index
     @event = Event.find(params[:event_id])
-    @review = Review.order(:created_at)
+    @reviews = Review.order(:created_at)
   end
 
   def show

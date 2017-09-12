@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @events_as_owner = Event.where(owner: current_user)
     @events_as_sitter = Event.where(sitter: current_user)
     @events = @events_as_owner + @events_as_sitter
+    @events_past = Event.closed.order(:start_date_time)
   end
 
   def purchase
