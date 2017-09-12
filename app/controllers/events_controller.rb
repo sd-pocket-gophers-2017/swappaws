@@ -11,8 +11,6 @@ class EventsController < ApplicationController
       date_params = params[:event]
       start_date = DateTime.parse(date_params[:start_date])
       end_date = DateTime.parse(date_params[:end_date])
-      puts start_date
-      puts end_date
       @events = Event.where(start_date_time: start_date..end_date).order(:start_date_time)
     else
       @events = Event.order(:start_date_time)
