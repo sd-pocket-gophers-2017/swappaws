@@ -6,6 +6,6 @@ class Pet < ApplicationRecord
     medium: '300x300>'
   }
 
-
+  validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
   validates :name, :breed, :age, :size, :description, presence: true
 end
