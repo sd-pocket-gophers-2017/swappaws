@@ -2,6 +2,20 @@
 
 <p>Tokens remaing: <strong><%= "\u{1f31f}" * current_user.tokens %></strong></p>
 
+<% @events_as_sitter.each do |event| %>
+  <% if event.pending_ids.any? %>
+  <h3>Booking request requires your attention!</h3>
+  <ul>
+    <li><%= event.location %></li>
+    <% event.pending_ids.each do |owner_id| %>
+      <% owner = User.find(owner_id) %>
+      <li><%= owner.first_name %></li>
+    <% end %>
+  </ul>
+  <% end %>
+<% end %>
+
+
 <% if @events_as_sitter.any? %>
   <h3><strong>My sittings</strong></h3>
   <ul>
@@ -9,9 +23,6 @@
       <li><%= event.location %></li>
       <li><%= date_time_helper(event.start_date_time) %></li>
       <li><%= date_time_helper(event.end_date_time) %></li>
-     <!--  <%# unless Review.find_by(event: event, type_reviews: 'owner') %>
-        <li> <%#= link_to('Review', new_event_review_path(event)) %></li>
-      <%# end %> -->
       <li><%= link_to('Update Event', edit_event_path(event)) %></li>
       <li><%= link_to('See more...', event_path(event)) %></li><br>
     <% end %>
@@ -27,9 +38,6 @@
       <li>Sitter email: <%= sitter.email %></li>
       <li>Address: <%= event.location %></li>
       <li>Sitting from <%= date_time_helper(event.start_date_time) %> to <%= date_time_helper(event.end_date_time) %></li>
-      <%# unless Review.find_by(event: event, type_reviews: 'sitter') %>
-       <!-- # //<li> <%#= link_to('Review', new_event_review_path(event)) %></li> -->
-      <%# end %>
       <li><%= link_to('See more...', event_path(event)) %></li><br>
     <% end %>
   </ul>
