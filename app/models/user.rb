@@ -4,7 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :pets
-  has_many :events
+  has_many :events_hosted, class_name: :Event, foreign_key: :sitter_id
+  has_many :events_booked, class_name: :Event, foreign_key: :owner_id
+  has_many :requests_created, class_name: :Request
+  has_many :requests_pending, through: :events_hosted, source: :requests
 
   has_many :reviews, through: :events
 

@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
 
   def index
     @event = Event.find(params[:event_id])
-    @review = Review.order(:created_at)
+    @reviews = Review.order(:created_at)
   end
 
   def show
@@ -18,8 +18,12 @@ class ReviewsController < ApplicationController
     @event = Event.find(params[:event_id])
     @review = Review.new(review_params)
     @review.event = @event
-    if @review.save
-      redirect_to event_reviews_path(@event)
+    if @review.save && @event.sitter == current_user
+        Review.update(type_reviews:'owner')
+        redirect_to event_reviews_path(@event)
+    elsif  @review.save && @event.owner == current_user
+        Review.update(type_reviews:'sitter')
+        redirect_to event_reviews_path(@event)
     else
       render 'new'
     end

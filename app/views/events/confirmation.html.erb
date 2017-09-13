@@ -1,0 +1,5 @@
+<h2>Congratulations! You have requested <%= @sitter.first_name %> to watch your pet!</h2>
+<ul>
+  <li><%= @event.location %></li>
+  <li>From <%= date_time_helper(@event.start_date_time) %> to <%= date_time_helper(@event.end_date_time) %></li>
+</ul>
