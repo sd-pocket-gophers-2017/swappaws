@@ -1,4 +1,6 @@
 <%= form_tag '/events', method: :get do %>
+  <%= label_tag(:distance, "distance") %>
+  <%= text_field(:event, :distance)%>
 
   <%= label_tag(:start_date, "Start Date:") %>
   <%= date_field(:event, :start_date) %>

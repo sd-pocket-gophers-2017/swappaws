@@ -6,7 +6,6 @@
 <ul>
   <% @events.each do |event| %>
   <% if event.sitter_id == current_user.id %>
-    <li><%= event.location %></li>
     <li><%= date_time_helper(event.start_date_time) %></li>
     <li><%= date_time_helper(event.end_date_time) %></li>
     <% unless Review.find_by(event: event, type_reviews: 'owner') %>
@@ -25,7 +24,6 @@
     <% sitter = User.find(event.sitter_id) %>
     <li>Sitter: <%= sitter.first_name %> <%= sitter.last_name %></li>
     <li>Sitter email: <%= sitter.email %></li>
-    <li>Address: <%= event.location %></li>
     <li>Sitting from <%= date_time_helper(event.start_date_time) %> to <%= date_time_helper(event.end_date_time) %></li>
     <% unless Review.find_by(event: event, type_reviews: 'sitter') %>
       <li> <%= link_to('Review', new_event_review_path(event)) %></li>
