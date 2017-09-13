@@ -66,10 +66,6 @@ class EventsController < ApplicationController
     end
   end
 
-  def complete
-
-  end
-
   def confirmation
     @event = Event.find(params[:id])
     @sitter = User.find(@event.sitter_id)

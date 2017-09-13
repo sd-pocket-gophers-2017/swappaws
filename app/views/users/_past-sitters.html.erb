@@ -1,0 +1,15 @@
+<% if @events_past_as_owner && @events_past_as_owner.any? %>
+  <h3><strong>My Past Sitters</strong></h3>
+  <ul>
+    <% @events_past_as_owner.each do |event| %>
+      <% sitter = User.find(event.sitter_id) %>
+      <% unless Review.find_by(event: event, type_reviews: 'sitter') %>
+        <li>Sitter: <%= sitter.first_name %> <%= sitter.last_name %></li>
+        <li>Sitter email: <%= sitter.email %></li>
+        <li><%= event.city %>, <%= event.state %></li>
+        <li>Sitting from <%= date_time_helper(event.start_date_time) %> to <%= date_time_helper(event.end_date_time) %></li>
+        <li> <%= link_to('Review', new_event_review_path(event)) %></li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
