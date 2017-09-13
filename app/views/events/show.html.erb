@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col s12 m9 l9 offset-l1">
     <ul>
-      <li>Event Creator: <%= @sitter.first_name %></li>
+      <li><span class="flow-text"><%= @sitter.first_name %></span> would like to have a companion for his pet</li>
       <li>Start Date: <%= date_time_helper(@event.start_date_time) %></li>
       <li>End Date: <%= date_time_helper(@event.end_date_time) %></li><br>
       <% if user_signed_in? && current_user.tokens >= 1 && @event.start_date_time > DateTime.now %>
@@ -15,4 +15,4 @@
     </ul>
   </div>
 </div>
->>>>>>> demo-request
+
