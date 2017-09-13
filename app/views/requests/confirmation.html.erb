@@ -1,0 +1,11 @@
+<h2>Confirm Request</h2>
+
+<%= form_for [@event, @request] do |f| %>
+  <%= f.hidden_field :approved, :value => "true" %>
+  <%= f.submit "Approve" %>
+<% end %>
+
+<%= form_for [@event, @request] do |fr| %>
+  <%= fr.hidden_field :approved, :value => "false" %>
+  <%= fr.submit "Reject" %>
+<% end %>

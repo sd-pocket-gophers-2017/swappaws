@@ -1,11 +1,12 @@
 class RequestsController < ApplicationController
 
   def new
+    @event = Event.find(params[:event_id])
     @request = Request.new
   end
 
   def create
-    @event = Event.find(params[:id])
+    @event = Event.find(params[:event_id])
     @request = Request.new(request_params)
     @request.event = @event
     @request.owner = current_user
@@ -18,7 +19,14 @@ class RequestsController < ApplicationController
     end
   end
 
+  def request_confirmation
+    @request = Request.find(params[:id])
+    @event = Event.find(params[:event_id ])
+    render 'confirmation'
+  end
+
   def show
+    @request = Request.find(params[:id])
   end
 
   def edit

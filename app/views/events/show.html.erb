@@ -5,7 +5,7 @@
   <li>Start Date: <%= date_time_helper(@event.start_date_time) %></li>
   <li>End Date: <%= date_time_helper(@event.end_date_time) %></li><br>
   <% if user_signed_in? && current_user.tokens >= 1 && @event.start_date_time > DateTime.now %>
-    <%= link_to 'Request to Book', book_event_path(@event), method: :put %>
+    <%= link_to 'Request to Book', new_event_request_path(@event) %>
   <% elsif user_signed_in? && current_user.tokens == 0 %>
     <p>It looks like you're all out of tokens! Purchase more if you want to book another sitting</p>
     <%= link_to 'Purchase tokens', purchase_path %>

@@ -20,5 +20,8 @@ Rails.application.routes.draw do
     put :book, on: :member
     get :success, on: :member
     get :confirmation, on: :member
+    resources :requests do
+      get :request_confirmation, on: :member
+    end
   end
 end

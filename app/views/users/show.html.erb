@@ -2,6 +2,23 @@
 
 <p>Tokens remaing: <strong><%= "\u{1f31f}" * current_user.tokens %></strong></p>
 
+<% if current_user.requests_pending.any?%>
+<h2>There are requests that require your attention!</h2>
+  <% current_user.requests_pending.each do |request| %>
+  <% if request.approved == nil %>
+      <ul>
+        <li><%= request.owner.first_name + " " + request.owner.last_name %></li>
+        <li><%= request.note %></li>
+        <li>From <%= date_time_helper(request.event.start_date_time) %> to <%= date_time_helper(request.event.end_date_time) %></li>
+        <li><%= link_to('Confirm this Sitting', request_confirmation_event_request_path(request.event, request))  %></li>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%# if current_user.events.%>
+
+
 <% if @events_as_sitter.any? %>
   <h3><strong>My sittings</strong></h3>
   <ul>
