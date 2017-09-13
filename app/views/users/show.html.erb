@@ -2,39 +2,81 @@
 
 <p>Tokens remaing: <strong><%= "\u{1f31f}" * current_user.tokens %></strong></p>
 
-<h3><strong>My sittings</strong></h3>
-<ul>
-  <% @events.each do |event| %>
-  <% if event.sitter_id == current_user.id %>
-    <li><%= event.location %></li>
-    <li><%= date_time_helper(event.start_date_time) %></li>
-    <li><%= date_time_helper(event.end_date_time) %></li>
-    <% unless Review.find_by(event: event, type_reviews: 'owner') %>
-      <li> <%= link_to('Review', new_event_review_path(event)) %></li>
+<% if current_user.requests_pending.any?%>
+<h2>There are requests that require your attention!</h2>
+  <% current_user.requests_pending.each do |request| %>
+  <% if request.approved == nil %>
+      <ul>
+        <li><%= request.owner.first_name + " " + request.owner.last_name %></li>
+        <li><%= request.note %></li>
+        <li>From <%= date_time_helper(request.event.start_date_time) %> to <%= date_time_helper(request.event.end_date_time) %></li>
+        <li><%= link_to('Confirm this Sitting', request_confirmation_event_request_path(request.event, request))  %></li>
+      </ul>
     <% end %>
-    <li><%= link_to('Update Event', edit_event_path(event)) %></li>
-    <li><%= link_to('See more...', event_path(event)) %></li><br>
   <% end %>
 <% end %>
-</ul>
 
-<h3><strong>My sitters</strong></h3>
-<ul>
-  <% @events.each do |event| %>
-  <% if event.owner_id == current_user.id %>
-    <% sitter = User.find(event.sitter_id) %>
-    <li>Sitter: <%= sitter.first_name %> <%= sitter.last_name %></li>
-    <li>Sitter email: <%= sitter.email %></li>
-    <li>Address: <%= event.location %></li>
-    <li>Sitting from <%= date_time_helper(event.start_date_time) %> to <%= date_time_helper(event.end_date_time) %></li>
-    <% unless Review.find_by(event: event, type_reviews: 'sitter') %>
-      <li> <%= link_to('Review', new_event_review_path(event)) %></li>
+<%# if current_user.events.%>
+
+
+<% if @events_as_sitter.any? %>
+  <h3><strong>My sittings</strong></h3>
+  <ul>
+    <% @events_as_sitter.each do |event| %>
+      <li><%= event.location %></li>
+      <li><%= date_time_helper(event.start_date_time) %></li>
+      <li><%= date_time_helper(event.end_date_time) %></li>
+      <li><%= link_to('Update Event', edit_event_path(event)) %></li>
+      <li><%= link_to('See more...', event_path(event)) %></li><br>
     <% end %>
-    <li><%= link_to('See more...', event_path(event)) %></li><br>
-  <% end %>
+  </ul>
 <% end %>
-</ul>
 
+<% if @events_as_owner.any? %>
+  <h3><strong>My sitters</strong></h3>
+  <ul>
+    <% @events_as_owner.each do |event| %>
+      <% sitter = User.find(event.sitter_id) %>
+      <li>Sitter: <%= sitter.first_name %> <%= sitter.last_name %></li>
+      <li>Sitter email: <%= sitter.email %></li>
+      <li>Address: <%= event.location %></li>
+      <li>Sitting from <%= date_time_helper(event.start_date_time) %> to <%= date_time_helper(event.end_date_time) %></li>
+      <li><%= link_to('See more...', event_path(event)) %></li><br>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if @events_past_sitters.any? %>
+  <h3><strong>My Past Sitters</strong></h3>
+  <ul>
+    <% @events_past_sitters.each do |event| %>
+      <% sitter = User.find(event.sitter_id) %>
+      <li>Sitter: <%= sitter.first_name %> <%= sitter.last_name %></li>
+      <li>Sitter email: <%= sitter.email %></li>
+      <li>Address: <%= event.location %></li>
+      <li>Sitting from <%= date_time_helper(event.start_date_time) %> to <%= date_time_helper(event.end_date_time) %></li>
+      <% unless Review.find_by(event: event, type_reviews: 'sitter') %>
+        <li> <%= link_to('Review', new_event_review_path(event)) %></li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if @events_past_sittings.any? %>
+  <h3><strong>My Past Sittings</strong></h3>
+  <ul>
+    <% @events_past_sittings.each do |event| %>
+      <% owner = User.find(event.owner_id) %>
+      <li>Owner: <%= owner.first_name %> <%= owner.last_name %></li>
+      <li>Owner email: <%= owner.email %></li>
+      <li>Address: <%= event.location %></li>
+      <li>Sitting from <%= date_time_helper(event.start_date_time) %> to <%= date_time_helper(event.end_date_time) %></li>
+      <% unless Review.find_by(event: event, type_reviews: 'owner') %>
+        <li> <%= link_to('Review', new_event_review_path(event)) %></li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
 <h3><strong>My pets</strong></h3>
 <ul>
   <% if current_user.pets.any? %>
