@@ -1,5 +1,14 @@
 <h2>Confirm Request</h2>
 
+<p><strong>Here's what people have to say about <%= @owner.first_name %></strong></p>
+  <ul>
+  <% @events_as_owner.each do |event| %>
+    <% event.reviews.each do |review| %>
+      <li><%= review.body %></li>
+    <% end %>
+  <% end %>
+  </ul>
+
 <%= form_for [@event, @request], url: confirmed_confirmation_event_request_path(@request) do |f| %>
   <%= f.hidden_field :approved, :value => "true" %>
   <%= f.submit "Approve" %>

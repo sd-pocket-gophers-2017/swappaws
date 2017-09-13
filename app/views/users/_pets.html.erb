@@ -1,0 +1,13 @@
+<h3><strong>My pets</strong></h3>
+<ul>
+  <% if current_user.pets.any? %>
+    <% current_user.pets.each do |pet| %>
+      <li>Name: <%= link_to("#{pet.name}", pet_path(pet)) %></li>
+      <li>Description: <%= pet.description %></li>
+      <li><%= link_to('Update Pet', edit_pet_path(pet)) %></li>
+    <% end %>
+    <%= link_to('Add a pet!', new_pet_path) %>
+  <% else %>
+    <li>You have not added any pets yet! Click <%= link_to('here', new_pet_path) %> to add a new pet</li>
+  <% end %>
+</ul>

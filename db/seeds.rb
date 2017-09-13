@@ -15,7 +15,7 @@ end
 end
 
 15.times do
-  Event.create!(sitter_id: User.all.pluck(:id).sample, owner_id: nil, start_date_time: Faker::Time.backward(6, :morning), end_date_time: Faker::Time.backward(2, :evening), street_address:Faker::Address.street_address, city:Faker::Address.city, state: Faker::Address.state, longitude: Faker::Address.longitude, latitude: Faker::Address.latitude)
+  Event.create!(sitter_id: User.all.pluck(:id).sample, owner_id: User.all.pluck(:id).sample, start_date_time: Faker::Time.backward(6, :morning), end_date_time: Faker::Time.backward(2, :evening), street_address:Faker::Address.street_address, city:Faker::Address.city, state: Faker::Address.state, longitude: Faker::Address.longitude, latitude: Faker::Address.latitude)
 end
 
 15.times do
