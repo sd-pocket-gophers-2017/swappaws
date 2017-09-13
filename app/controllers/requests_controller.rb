@@ -34,6 +34,7 @@ class RequestsController < ApplicationController
     @event = @request.event
     if @request.update(request_params)
       @event.pending = false
+      @event.owner_id = @request.owner_id
       @event.save
       redirect_to profile_path
     else
