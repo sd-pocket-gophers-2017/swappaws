@@ -7,13 +7,14 @@
 			<div class="col s12 m9 l9 offset-l1">
 				<% @pets.each do |pet| %>
 					<div class="card teal lighten-4">
-					  <li class="flow-text">Name: <strong><%= link_to("#{pet.name}", pet_path(pet)) %></strong></li>
-					  <li>Age: <%= pet.age %></li>
-					  <li>Breed: <%= pet.breed %></li>
-					  <li>Size: <%= pet.size %></li>
-					  <li>Description: <%= pet.description %></li>
-					</div>
-		  		<br>
-				<%end %>
+					  <li class="flow-text">Name: <strong><%= link_to("#{pet.name}", pet_path(pet)) %></strong></li><%= image_tag pet.photo.url(:square) %>
+            <li>Age: <%= pet.age %></li>
+            <li>Breed: <%= pet.breed %></li>
+            <li>Size: <%= pet.size %></li>
+            <li>Description: <%= pet.description %></li>
+            <br>
+          <% end %>
 			</div>
 		</ul>
+    </div>
+

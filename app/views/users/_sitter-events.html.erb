@@ -1,0 +1,12 @@
+<% if @events_as_sitter.any? %>
+  <h3><strong>Upcoming Pet Assignments</strong></h3>
+  <ul>
+    <% @events_as_sitter.each do |event| %>
+      <li><%= event.city %>, <%= event.state %></li>
+      <li><%= date_time_helper(event.start_date_time) %></li>
+      <li><%= date_time_helper(event.end_date_time) %></li>
+      <li><%= link_to('Update Event', edit_event_path(event)) %></li>
+      <li><%= link_to('See more...', event_path(event)) %></li><br>
+    <% end %>
+  </ul>
+<% end %>

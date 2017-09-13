@@ -16,6 +16,27 @@
       </div>
 
       <div class="field">
+        <%= f.label :Tell_us_a_bit_about_yourself %><br />
+        <%= f.text_field :bio, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :street_address %><br />
+        <%= f.text_field :street_address, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :city %><br />
+        <%= f.text_field :city, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :state %><br />
+        <%= f.text_field :state, autofocus: true %>
+      </div>
+
+
+      <div class="field">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true %>
       </div>
@@ -38,4 +59,9 @@
       </div>
     <% end %>
   </div>
+<%= render "devise/shared/links" %>
 </div>
+
+
+
+
