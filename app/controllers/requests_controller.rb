@@ -29,6 +29,28 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
   end
 
+  def confirmed_confirmation
+    @request = Request.find(params[:id])
+    @event = @request.event
+    if @request.update(request_params)
+      @event.pending = false
+      @event.save
+      redirect_to profile_path
+    else
+      render 'confirmation'
+    end
+  end
+
+  def denied_confirmation
+    @request = Request.find(params[:id])
+    if @request.update(request_params)
+      redirect_to profile_path
+    else
+      render 'confirmation'
+    end
+  end
+
+
   def edit
   end
 
@@ -38,7 +60,7 @@ class RequestsController < ApplicationController
   def delete
   end
   private
-    def request_params
-      params.require(:request).permit(:note)
-    end
+  def request_params
+    params.require(:request).permit(:note, :approved)
+  end
 end

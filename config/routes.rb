@@ -22,6 +22,10 @@ Rails.application.routes.draw do
     get :confirmation, on: :member
     resources :requests do
       get :request_confirmation, on: :member
+      patch :confirmed_confirmation, on: :member
+      patch :denied_confirmation, on: :member
     end
   end
 end
+
+
