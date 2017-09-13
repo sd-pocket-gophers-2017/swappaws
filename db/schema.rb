@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170913002057) do
+
+ActiveRecord::Schema.define(version: 20170912234418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.string "location", null: false
     t.datetime "start_date_time", null: false
     t.datetime "end_date_time", null: false
     t.integer "sitter_id", null: false
@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(version: 20170913002057) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "pending", default: true
+    t.string "street_address", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "pets", force: :cascade do |t|
@@ -79,6 +84,11 @@ ActiveRecord::Schema.define(version: 20170913002057) do
     t.string "profile_photo_content_type"
     t.integer "profile_photo_file_size"
     t.datetime "profile_photo_updated_at"
+    t.string "street_address", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

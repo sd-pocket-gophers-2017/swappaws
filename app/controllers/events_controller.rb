@@ -8,10 +8,10 @@ class EventsController < ApplicationController
 
   def index
     if params.has_key?(:event) && params[:event].has_key?(:start_date) # params are there
-      date_params = params[:event]
-      start_date = DateTime.parse(date_params[:start_date])
-      end_date = DateTime.parse(date_params[:end_date])
-      @events = Event.where(start_date_time: start_date..end_date).order(:start_date_time)
+      start_date = DateTime.parse(event_params[:start_date])
+      end_date = DateTime.parse(event_params[:end_date])
+
+      @events = Event.where(start_date_time: start_date..end_date).near([current_user.latitude,current_user.longitude], event_params[:distance]).order(:start_date_time)
     else
       @events = Event.order(:start_date_time)
     end
@@ -78,7 +78,7 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:sitter_id, :location, :start_date_time, :end_date_time, :owner_id)
+      params.require(:event).permit(:sitter_id, :location, :start_date_time, :end_date_time, :owner_id, :distance, :start_date, :end_date)
     end
 
     # def event_search_params

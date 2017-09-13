@@ -5,7 +5,8 @@
 <ul>
 <% @events.each do |event| %>
   <% if available?(event) %>
-    <li>Location: <%= event.location %></li>
+    <li> <%= "#{event.city}, #{event.state}" %> </li>
+    <li><%= Geocoder::Calculations.distance_between(event, current_user) %> miles away.</li>
     <li>Start Date: <%= date_time_helper(event.start_date_time) %></li>
     <li>End Date: <%= date_time_helper(event.end_date_time) %></li>
     <li><%= link_to('See more...', event_path(event)) %></li><br>

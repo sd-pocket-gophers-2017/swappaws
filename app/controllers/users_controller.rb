@@ -7,8 +7,6 @@ class UsersController < ApplicationController
     @events = @events_as_owner + @events_as_sitter
     @events_past_sitters = Event.closed.order(:start_date_time).where(owner: current_user)
     @events_past_sittings = Event.closed.order(:start_date_time).where(sitter: current_user)
-
-
   end
 
   def purchase
