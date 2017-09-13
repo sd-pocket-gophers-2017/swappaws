@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   get '/profile' => 'users#show', :as => :profile
+  put '/profile' => 'users#update_photo'
 
   get '/success' => 'events#success'
   # put '/events/:id/book' => 'events#book_event'
