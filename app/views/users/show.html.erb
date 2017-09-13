@@ -2,17 +2,19 @@
 <%if current_user.profile_photo.exists? %>
   <p><%= image_tag current_user.profile_photo.url(:medium) %></p>
 <% else %>
-  <%= form_for current_user do |f|%>
-    <p>
-      <%= f.label :profile_photo %>
-      <%= f.file_field :profile_photo %>
-    </p>
-
-    <p>
-      <%= f.submit %>
-    </p>
-  <% end %>
+  <p><%= image_tag("abstract-user-flat-1.svg")%></p>
 <% end %>
+<%= form_for current_user do |f|%>
+  <p>
+    <%= f.label :profile_photo %>
+    <%= f.file_field :profile_photo %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
 <p><%= current_user.bio %> </p>
 <p>Tokens remaing: <strong><%= "\u{1f31f}" * current_user.tokens %></strong></p>
 
