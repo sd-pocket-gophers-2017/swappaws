@@ -1,13 +1,18 @@
-
 <div class="row">
   <div class="col s12 m9 l9 offset-l1">
-    <h2><%= @event.location %></h2>
-
     <ul>
       <li>Event Creator: <%= @sitter.first_name %></li>
       <li>Start Date: <%= date_time_helper(@event.start_date_time) %></li>
       <li>End Date: <%= date_time_helper(@event.end_date_time) %></li><br>
-      <%= link_to 'Book Now!', event_path(@event, owner_id: current_user.id), method: :put, onclick: "alert('Booking Confirmed!')" %>
+      <% if user_signed_in? && current_user.tokens >= 1 && @event.start_date_time > DateTime.now %>
+        <%= link_to 'Request to Book', new_event_request_path(@event) %>
+      <% elsif user_signed_in? && current_user.tokens == 0 %>
+        <p>It looks like you're all out of tokens! Purchase more if you want to book another sitting</p>
+        <%= link_to 'Purchase tokens', purchase_path %>
+      <% else %>
+        <p><%= link_to 'Create a user account', new_user_registration_path %> or <%= link_to 'login', new_user_session_path %> to book this sitting!</p>
+      <% end %>
     </ul>
   </div>
 </div>
+>>>>>>> demo-request

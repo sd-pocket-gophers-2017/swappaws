@@ -1,0 +1,9 @@
+<h2>My Reviews</h2>
+<%# render 'errors' %>
+<ul>
+  <% @event.reviews.each do |review| %>
+    <li><%= review.body %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back', profile_path %>

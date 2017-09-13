@@ -1,0 +1,16 @@
+<h1> Booking completed! </h1>
+<h4>Here's your sitting information:</h4>
+<ul>
+  <li>Sitter: <%= @sitter.first_name + " " + @sitter.last_name %></li>
+  <li>Email: <%= @sitter.email %></li>
+  <li>Address: <%= @event.location %></li>
+  <li>Sitting from <%= date_time_helper(@event.start_date_time) %> to <%= date_time_helper(@event.end_date_time) %></li>
+</ul>
+
+<% if current_user.tokens > 1 %>
+  <p>You have <%= current_user.tokens %> tokens remaining</p>
+<% elsif current_user.tokens == 1 %>
+  <p>Looks like you're getting low on tokens, you only have <%= current_user.tokens %> token left! Click <%= link_to 'here', purchase_path %> to purchase more, or <%= link_to 'here', new_event_path %> to open your schedule for dog sittings. Remember, you get one token each time someone schedules you to dog sit!</p>
+<% elsif current_user.tokens == 0 %>
+  <p>You're all out of tokens! Click <%= link_to 'here', purchase_path %> to purchase more, or <% link_to 'here', new_event_path %> to open your schedule for dog sittings. Remember, you get one token each time someone schedules you to dog sit!</p>
+<% end %>

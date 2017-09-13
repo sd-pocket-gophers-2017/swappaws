@@ -1,8 +1,9 @@
 <%= form_for @review do |f| %>
 
 <%= f.hidden_field :user_id, value: current_user.id %>
-  
+
   <% if @review.errors.any? %>
+
     <div id="error_explanation">
       <h2>
         <%= pluralize(@review.errors.count, "error") %> prohibited
@@ -33,7 +34,7 @@
 
   <p>
     <%= f.label :size %><br>
-    <%= f.text_field :size %>
+    <%= f.select :size, ['small', 'medium', 'large', 'very large', 'Clifford']%>
   </p>
 
   <p>
@@ -42,8 +43,8 @@
   </p>
   <%# This will need to be adjusted in both the migration and this form field for images%>
   <p>
-    <%= f.label :photos %><br>
-    <%= f.text_field :photos %>
+    <%= f.label :photo %>
+    <%= f.file_field :photo %>
   </p>
 
   <p>

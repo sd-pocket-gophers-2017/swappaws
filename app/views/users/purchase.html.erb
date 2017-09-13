@@ -1,0 +1,28 @@
+<h2>Purchase more Tokens</h2>
+<%= form_for @user, :url => url_for(:controller => 'users', :action => 'update_tokens') do |f| %>
+
+<%= f.hidden_field :user_id, value: current_user.id %>
+  
+  <% if current_user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(current_user.errors.count, "error") %> prohibited
+        this user from being saved:
+      </h2>
+      <ul>
+        <% current_user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label "How many tokens would you like to purchase?" %><br>
+    <%= f.number_field :tokens %>
+  </p>
+
+  <p>
+    <%= f.submit "Complete Purchase" %>
+  </p>
+<% end %>
