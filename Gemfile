@@ -32,11 +32,11 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'dotenv'
 gem 'devise'
 #for photos to work make sure you have imagemagick installed
 gem 'paperclip'
 gem 'aws-sdk', '~> 2.10'
+gem 'geocoder'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -47,6 +47,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   gem 'faker'
+  gem 'dotenv-rails'
 end
 
 group :development do
