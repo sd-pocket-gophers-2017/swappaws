@@ -78,7 +78,7 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:sitter_id, :location, :start_date_time, :end_date_time, :owner_id, :distance, :start_date, :end_date)
+      params.require(:event).permit(:longitude, :latitude, :street_address, :city, :state, :sitter_id, :start_date_time, :end_date_time, :owner_id, :distance, :start_date, :end_date)
     end
 
     # def event_search_params
