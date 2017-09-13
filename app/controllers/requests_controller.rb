@@ -22,6 +22,9 @@ class RequestsController < ApplicationController
   def request_confirmation
     @request = Request.find(params[:id])
     @event = Event.find(params[:event_id ])
+    @owner = User.find(@request.owner_id)
+    @events_as_owner = Event.where(owner: @owner)
+    @events_as_sitter = Event.where(sitter: @owner)
     render 'confirmation'
   end
 
