@@ -1,12 +1,16 @@
 <% if @events_past_as_sitter && @events_past_as_sitter.any? %>
-  <h3><strong>My Owner Reviews</strong></h3>
-  <ul>
-  <% @events_past_as_sitter.each do |event| %>
-    <li>Owner: <%= event.owner.first_name %> <%= event.owner.last_name %></li>
-    <li>Owner email: <%= event.owner.email %></li>
-    <% event.sitter_reviews.each do |review| %>
-      <li><%= review.body %></li>
+    <% @events_past_as_sitter.each do |sitter_event| %>
+      <% if sitter_event.reviews.any? %>
+    <h3><strong>My Owner Reviews</strong></h3>
+    <ul>
+    <% @events_past_as_sitter.each do |event| %>
+      <li>Owner: <%= event.owner.first_name %> <%= event.owner.last_name %></li>
+      <li>Owner email: <%= event.owner.email %></li>
+      <% event.owner_reviews.each do |review| %>
+        <li><%= review.body %></li>
+        <% end %>
+      <% end %>
     <% end %>
+    </ul>
   <% end %>
-  </ul>
 <% end %>

@@ -20,6 +20,10 @@
   </p>
 
   <p>
-    <%= f.submit %>
+    <%#= flash[:notice] %>
+  </p>
+
+  <p>
+    <%= f.submit data: { confirm: "Are you sure you wish make this request?" }%>
   </p>
 <% end %>
