@@ -24,6 +24,11 @@ class EventsController < ApplicationController
 # Only if logged in
   def create
     @event = Event.new(event_params)
+    start_date_time = DateTime.parse([params[:start_date], params[:start_time]].join(' '))
+    end_date_time = DateTime.parse([params[:end_date], params[:end_time]].join(' '))
+    @event.start_date_time = start_date_time
+    @event.end_date_time = end_date_time
+    @event.sitter_id = current_user.id
     if @event.save
       redirect_to events_path(@event)
     else
