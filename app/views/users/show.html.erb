@@ -4,7 +4,7 @@
     <%if current_user.profile_photo.exists? %>
       <p><%= image_tag current_user.profile_photo.url(:medium) %></p>
         <% else %>
-      <p><%= image_tag("abstract-user-flat-1.svg")%></p>
+      <p><%= image_tag("default-user.png")%></p>
         <% end %>
         <%= form_for current_user do |f|%>
       <p>
@@ -34,11 +34,11 @@
         <div class="collapsible-body"><%= render 'owner-events' %></div>
       </li>
       <li>
-        <div class="collapsible-header">Reviews that need attention</div>
+        <div class="collapsible-header">Owner Reviews that need attention</div>
         <div class="collapsible-body"><%= render 'past-owners' %></div>
       </li>
       <li>
-        <div class="collapsible-header">Reviews that need attention</div>
+        <div class="collapsible-header">Sitter Reviews that need attention</div>
         <div class="collapsible-body"><%= render 'past-sitters' %></div>
       </li>
       <li>
@@ -54,7 +54,7 @@
 </div>
 
 <div class="row">
-  <div class="col s12 m8 l6 offset-l3">
+  <div class="col s12 m8 l8 offset-l1">
     <%= render 'pets' %>
   </div>
   <div class="col s12">

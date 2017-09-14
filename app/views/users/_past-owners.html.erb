@@ -1,13 +1,19 @@
 <% if @events_past_as_sitter.any? %>
   <ul>
     <% @events_past_as_sitter.each do |event| %>
-      <% owner = User.find(event.owner_id) %>
-      <li>Owner: <%= owner.first_name %> <%= owner.last_name %></li>
-      <li>Owner email: <%= owner.email %></li>
-      <li><%= event.city %>, <%= event.state %></li>
-      <li>Sitting from <%= date_time_helper(event.start_date_time) %> to <%= date_time_helper(event.end_date_time) %></li>
-      <% unless Review.find_by(event: event, type_reviews: 'owner') %>
-        <li> <%= link_to('Review', new_event_review_path(event), :class => 'waves-effect waves-light btn') %></li>
+      <div class="row card pad-t-1 pad-b-1">
+        <div class="col s3 m3 l8">
+          <% owner = User.find(event.owner_id) %>
+          <li>Owner: <%= owner.first_name %> <%= owner.last_name %></li>
+          <li>Owner email: <%= owner.email %></li>
+          <li><%= event.city %>, <%= event.state %></li>
+          <li>Sitting from <%= date_time_helper(event.start_date_time) %> to <%= date_time_helper(event.end_date_time) %></li>
+        </div>
+        <div class="col s3 m3 l2">
+          <% unless Review.find_by(event: event, type_reviews: 'owner') %>
+            <li> <%= link_to('Review', new_event_review_path(event), :class => 'waves-effect waves-light btn') %></li>
+        </div>
+      </div>
       <% end %>
     <% end %>
   </ul>
