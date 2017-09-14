@@ -31,11 +31,20 @@
     <%= f.text_field :state %>
   </p>
 
-  <p>
-    <%= f.label :start_time %><br>
-    <%= f.date_select  :start_date_time %>
-    <%= f.time_select :start_date_time, :ignore_date => true %>
-  </p>
+  <div class="row">
+      <p>
+      <div class="col s12 m5 l5">
+        <%= f.label :start_time %><br>
+      </div>
+      <div class="col s12 m5 l5">
+        <%= f.date_select  :start_date_time, class: "datepicker" %>
+      </div>
+      <div class="col s12">
+        <%= f.time_select :start_date_time, :ignore_date => true, class: "timepicker" %>
+      </div>
+      </p>
+    </div>
+  </div>
 
   <p>
     <%= f.label :end_time %><br>
