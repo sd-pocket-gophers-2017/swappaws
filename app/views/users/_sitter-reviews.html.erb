@@ -1,9 +1,9 @@
 <% if @events_past_as_owner && @events_past_as_owner.any? %>
   <ul>
   <% @events_past_as_owner.each do |event| %>
-    <li><%= event.sitter.first_name %> <%= event.sitter.last_name %></li>
+    <li><strong><italic><%= event.sitter.first_name %> <%= event.sitter.last_name %></italic></strong></li>
     <% event.sitter_reviews.each do |review| %>
-      <li><%= review.body %></li>
+      <li><%= %><%= review.body %></li>
       <br>
     <% end %>
   <% end %>

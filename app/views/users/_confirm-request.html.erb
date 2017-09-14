@@ -5,7 +5,7 @@
         <li><%= request.owner.first_name + " " + request.owner.last_name %></li>
         <li><%= request.note %></li>
         <li>From <%= date_time_helper(request.event.start_date_time) %> to <%= date_time_helper(request.event.end_date_time) %></li>
-        <li><%= link_to('Confirm this Sitting', request_confirmation_event_request_path(request.event, request))  %></li>
+        <li><%= link_to('Confirm this Sitting', request_confirmation_event_request_path(request.event, request), :class => 'waves-effect waves-light btn')  %></li>
       </ul>
     <% end %>
   <% end %>

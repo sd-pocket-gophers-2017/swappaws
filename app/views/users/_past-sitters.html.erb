@@ -7,7 +7,7 @@
         <li>Sitter email: <%= sitter.email %></li>
         <li><%= event.city %>, <%= event.state %></li>
         <li>Sitting from <%= date_time_helper(event.start_date_time) %> to <%= date_time_helper(event.end_date_time) %></li>
-        <li> <%= link_to('Review', new_event_review_path(event)) %></li>
+        <li> <%= link_to('Review', new_event_review_path(event), :class => 'waves-effect waves-light btn') %></li>
       <% end %>
     <% end %>
   </ul>

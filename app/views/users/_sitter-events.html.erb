@@ -1,11 +1,17 @@
 <% if @events_as_sitter.any? %>
   <ul>
     <% @events_as_sitter.each do |event| %>
-      <li><%= event.city %>, <%= event.state %></li>
-      <li><%= date_time_helper(event.start_date_time) %></li>
-      <li><%= date_time_helper(event.end_date_time) %></li>
-      <li><%= link_to('Update Event', edit_event_path(event)) %></li>
-      <li><%= link_to('See more...', event_path(event)) %></li><br>
+      <div class="row card pad-t-1 pad-b-1">
+        <div class="col s3 m3 l8">
+          <li><%= event.city %>, <%= event.state %></li>
+          <li><%= date_time_helper(event.start_date_time) %></li>
+          <li><%= date_time_helper(event.end_date_time) %></li>
+        </div>
+        <div class="col s3 m3 l2">
+          <li><%= link_to('Update Event', edit_event_path(event), :class => 'waves-effect waves-light btn') %></li><br>
+          <li><%= link_to('Details', event_path(event), :class => 'waves-effect waves-light btn') %></li>
+        </div>
+      </div>
     <% end %>
   </ul>
 <% end %>
