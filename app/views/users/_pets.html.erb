@@ -3,7 +3,7 @@
     <h4 class="flow-text pad-t-2">My pets</h4>
   </div>
   <div class="col s6 m5 l5">
-  <br>
+  <br><br><br>
     <%= link_to('Add Pet', new_pet_path, { :class => "waves-effect waves-light btn" } ) %>
   </div>
 </div>
@@ -17,7 +17,7 @@
             <li><%= image_tag pet.photo.url(:medium) %></li>
           </div>
         <div class="col s6 m5 l5">
-        <br><br><br>
+          <br><br><br>
           <li>Description: <%= pet.description %></li>
           <li>Age: <%= pet.age %></li>
           <li>Breed: <%= pet.breed %></li>
@@ -28,7 +28,7 @@
       </div>
     <% end %>
   <% else %>
-    <li>You have not added any pets yet! Click <%= link_to('here', new_pet_path, :class => 'waves-effect waves-light btn') %> to add a new pet</li>
+    <li class="pad-1">You have not added any pets yet! Click <%= link_to('here', new_pet_path) %> to add a new pet</li>
   <% end %>
 </ul>
 
