@@ -24,4 +24,5 @@ end
 
 15.times do
   Review.create!(event: Event.where('end_date_time < ?', DateTime.now).sample, body: Faker::ChuckNorris.fact, type_reviews: ['owner', 'sitter'].sample )
+
 end
