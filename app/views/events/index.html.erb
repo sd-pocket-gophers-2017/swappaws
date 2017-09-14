@@ -1,6 +1,8 @@
 <div class="row">
   <div class="col s12 m10 l10 offset-l1">
+  <% if user_signed_in? %>
     <%= render 'filter' %>
+  <% end %>
       <h2 class="flow-text">Upcoming Events</h2>
         <table class="striped">
           <thead>
@@ -16,7 +18,9 @@
   			 		<tbody>
   				 		<tr>
   						 <td>  <%= "#{event.city}, #{event.state}" %> </thead>
-                <td><%= (Geocoder::Calculations.distance_between(event, current_user)).ceil %> miles away.</td>
+                <% if user_signed_in? %>
+                  <td><%= (Geocoder::Calculations.distance_between(event, current_user)).ceil %> miles away.</td>
+                <%  end %>
   						  <td> <%= date_time_helper(event.start_date_time) %></td>
   						  <td><%= date_time_helper(event.end_date_time) %></td>
   						  <div class="class-action ">
