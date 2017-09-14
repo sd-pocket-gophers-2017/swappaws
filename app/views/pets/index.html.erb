@@ -3,8 +3,8 @@
 		<h2 class="flow-text">Here are all of our pets!</h2>
 		</div>
 		<br>
-		<ul class="card">
-			<div class="col s12 m9 l9 offset-l1">
+		<!-- <ul class="card"> -->
+			<!-- <div class="col s12 m9 l9 offset-l1">
 				<% @pets.each do |pet| %>
 					<div class="card teal lighten-4">
 					  <li class="flow-text">Name: <strong><%= link_to("#{pet.name}", pet_path(pet)) %></strong></li><%= image_tag pet.photo.url(:square) %>
@@ -13,8 +13,13 @@
             <li>Size: <%= pet.size %></li>
             <li>Description: <%= pet.description %></li>
             <br>
-          <% end %>
+          <% end %> -->
 			</div>
-		</ul>
-    </div>
-
+      <div class="carousel carousel-slider">
+        <!-- <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/800/400/food/1"></a> -->
+        <% @pets.each do |pet| %>
+          <a class="carousel-item"><%=image_tag pet.photo.url(:custom)%></a>
+        <% end %>
+      </div>
+		<!-- </ul> -->
+    <!-- </div> -->
