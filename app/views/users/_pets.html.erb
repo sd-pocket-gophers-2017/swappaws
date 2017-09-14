@@ -1,14 +1,34 @@
-<h4 class="flow-text">My pets</h4>
-<ul>
+<div class="row">
+  <div class="col s6 m5 l5">
+    <h4 class="flow-text pad-t-2">My pets</h4>
+  </div>
+  <div class="col s6 m5 l5">
+  <br>
+    <%= link_to('Add Pet', new_pet_path, { :class => "waves-effect waves-light btn" } ) %>
+  </div>
+</div>
+<ul class="card">
   <% if current_user.pets.any? %>
     <% current_user.pets.each do |pet| %>
-      <li>Name: <%= link_to("#{pet.name}", pet_path(pet)) %></li>
-      <li>Description: <%= pet.description %></li>
-      <li><%= image_tag pet.photo.url(:medium) %></li>
-      <li><%= link_to('Update Pet', edit_pet_path(pet)) %></li>
+      <div class="card striped">
+        <div class="row  pad-t-2">
+          <div class="col s6 m5 l5 offset-l1">
+            <li class="flow-text"><%= link_to("#{pet.name}", pet_path(pet)) %></li>
+            <li><%= image_tag pet.photo.url(:medium) %></li>
+          </div>
+        <div class="col s6 m5 l5">
+        <br><br><br>
+          <li>Description: <%= pet.description %></li>
+          <li>Age: <%= pet.age %></li>
+          <li>Breed: <%= pet.breed %></li>
+          <li>Size: <%= pet.size %></li>
+          <li>Description: <%= pet.description %></li>
+          <li class="pad-b-2"><%= link_to('Update Pet', edit_pet_path(pet), :class => 'waves-effect waves-light btn') %></li>
+        </div>
+      </div>
     <% end %>
-    <%= link_to('Add a pet!', new_pet_path) %>
   <% else %>
-    <li>You have not added any pets yet! Click <%= link_to('here', new_pet_path) %> to add a new pet</li>
+    <li>You have not added any pets yet! Click <%= link_to('here', new_pet_path, :class => 'waves-effect waves-light btn') %> to add a new pet</li>
   <% end %>
 </ul>
+
