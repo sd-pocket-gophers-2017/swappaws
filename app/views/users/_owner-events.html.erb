@@ -1,5 +1,4 @@
 <% if @events_as_owner.any? %>
-  <h3><strong>Upcoming Pet Care</strong></h3>
   <ul>
     <% @events_as_owner.each do |event| %>
       <li><%= event.city %>, <%= event.state %></li>

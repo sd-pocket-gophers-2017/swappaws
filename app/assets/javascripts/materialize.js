@@ -19,5 +19,46 @@ $(document).ready(function() {
     ampmclickable: true, // make AM PM clickable
     aftershow: function(){} //Function for after opening timepicker
   });
+  $('.carousel.carousel-slider').carousel({fullWidth: true});
+  // Next slide
+  $('.carousel').carousel('next');
+  // Previous slide
+  $('.carousel').carousel('prev');
+
+  // autoplay()
+  //
+  //
+  // function autoplay() {
+  //   $('.carousel').carousel('next');
+  //   setTimeout(autoplay, 4500);
+  // }
+  $('.carousel').carousel();
+  setInterval(function() {
+    $('.carousel').carousel('next');
+  }, 2005)
+  // $('.carousel').carousel({
+  //         full_width:true,
+  //         time_constant: 100
+  //       });
+  //
+  //       var carouselAutoplay = setInterval(function(){
+  //             $('.fa-angle-right').click();
+  //           }, 7000);
+  //
+  //       $('.fa-angle-right').click(function(){
+  //         $('.carousel').carousel('next');
+  //         clearInterval(carouselAutoplay);
+  //         carouselAutoplay = setInterval(function(){
+  //             $('.fa-angle-right').click();
+  //           }, 7000);
+  //       });
+  //       $('.fa-angle-left').click(function(){
+  //         $('.carousel').carousel('prev');
+  //         clearInterval(carouselAutoplay);
+  //         carouselAutoplay = setInterval(function(){
+  //             $('.fa-angle-right').click();
+  //           }, 7000);
+  //     });
+
 
 })
