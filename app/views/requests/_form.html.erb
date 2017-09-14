@@ -15,15 +15,11 @@
   <% end %>
 
   <p>
-    <%= f.label :note %><br>
-    <%= f.text_area :note, cols:45, rows:8 %>
+    <%= f.label :Message%><br>
+    <%= f.text_area :note, cols:35, rows:10 %>
   </p>
 
   <p>
-    <%#= flash[:notice] %>
-  </p>
-
-  <p>
-    <%= f.submit data: { confirm: "Are you sure you wish make this request?" }%>
+    <%= f.submit  :class => 'waves-light waves-effect btn', data: { confirm: "Are you sure you wish make this request?" }%>
   </p>
 <% end %>

@@ -7,16 +7,17 @@
     <%= link_to('Add Pet', new_pet_path, { :class => "waves-effect waves-light btn" } ) %>
   </div>
 </div>
+
 <ul class="card">
   <% if current_user.pets.any? %>
     <% current_user.pets.each do |pet| %>
       <div class="card striped">
         <div class="row  pad-t-2">
-          <div class="col s6 m5 l5 offset-l1">
+          <div class="col s12 m8 l8 offset-l1">
             <li class="flow-text"><%= link_to("#{pet.name}", pet_path(pet)) %></li>
             <li><%= image_tag pet.photo.url(:medium) %></li>
           </div>
-        <div class="col s6 m5 l5">
+        <div class="col s8 m4 l4 offset-l1">
           <br><br><br>
           <li>Description: <%= pet.description %></li>
           <li>Age: <%= pet.age %></li>
