@@ -5,7 +5,6 @@
         <table class="striped">
           <thead>
             <tr>
-
               <th class="flow-text">Start Date</th>
               <th class="flow-text">End Time</th>
             </tr>
@@ -17,7 +16,7 @@
   			 		<tbody>
   				 		<tr>
   						 <td>  <%= "#{event.city}, #{event.state}" %> </thead>
-                <td><%= Geocoder::Calculations.distance_between(event, current_user) %> miles away.</td>
+                <td><%= (Geocoder::Calculations.distance_between(event, current_user)).ceil %> miles away.</td>
   						  <td> <%= date_time_helper(event.start_date_time) %></td>
   						  <td><%= date_time_helper(event.end_date_time) %></td>
   						  <div class="class-action ">
