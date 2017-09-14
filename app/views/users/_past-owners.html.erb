@@ -1,5 +1,4 @@
 <% if @events_past_as_sitter.any? %>
-  <h3><strong>My Past Sittings</strong></h3>
   <ul>
     <% @events_past_as_sitter.each do |event| %>
       <% owner = User.find(event.owner_id) %>

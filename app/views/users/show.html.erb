@@ -1,38 +1,81 @@
-<h2>Welcome, <%= current_user.first_name %>!</h2>
-<%if current_user.profile_photo.exists? %>
-  <p><%= image_tag current_user.profile_photo.url(:medium) %></p>
-<% else %>
-  <p><%= image_tag("abstract-user-flat-1.svg")%></p>
-<% end %>
-<%= form_for current_user do |f|%>
-  <p>
-    <%= f.label :profile_photo %>
-    <%= f.file_field :profile_photo %>
-  </p>
+<div class="row">
+  <div class="col s12 m6 l3 offset-l1">
+    <h4 class="flow-text">Welcome, <%= current_user.first_name %>!</h4>
+    <%if current_user.profile_photo.exists? %>
+      <p><%= image_tag current_user.profile_photo.url(:medium) %></p>
+        <% else %>
+      <p><%= image_tag("abstract-user-flat-1.svg")%></p>
+        <% end %>
+        <%= form_for current_user do |f|%>
+      <p>
+        <%= f.label :profile_photo %>
+        <%= f.file_field :profile_photo %>
+      </p>
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+  </div>
+  <div class="col s12 m6 l3 offset-l3">
+    <%= render 'pets' %>
+  </div>
+</div>
 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<div class="row">
+  <div class="col s12">
+    <p><%= current_user.bio %> </p>
+  </div>
+</div>
 
-<p><%= current_user.bio %> </p>
+<div class="row">
+  <div class="col s5">
+    <p class="flow-text teal-text">Tokens remaining: <%= "\u{1f31f}" * current_user.tokens %></p>
+  </div>
+  <div class="col s5">
+    <div class="waves-effect waves-light btn">
+      <%= link_to('Create New Event', new_event_path) %>
+    </div>
+  </div>
+</div>
 
-<p>Tokens remaing: <strong><%= "\u{1f31f}" * current_user.tokens %></strong></p>
+<div class="row">
+  <div class="col s12">
+    <ul class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header">Request Confirmation</div>
+        <div class="collapsible-body"><%= render 'confirm-request' %></div>
+      </li>
+      <li>
+        <div class="collapsible-header">Upcoming Pet Assignments</div>
+        <div class="collapsible-body"><%= render 'sitter-events' %></div>
+      </li>
+      <li>
+        <div class="collapsible-header">Upcoming Pet Care</div>
+        <div class="collapsible-body"><%= render 'owner-events' %></div>
+      </li>
+      <li>
+        <div class="collapsible-header">Reviews that need attention</div>
+        <div class="collapsible-body"><%= render 'past-owners' %></div>
+      </li>
+      <li>
+        <div class="collapsible-header">Reviews that need attention</div>
+        <div class="collapsible-body"><%= render 'past-sitters' %></div>
+      </li>
+      <li>
+        <div class="collapsible-header">My Sitter Reviews</div>
+        <div class="collapsible-body"><%= render 'sitter-reviews' %></div>
+      </li>
+      <li>
+        <div class="collapsible-header">Owner Reviews</div>
+        <div class="collapsible-body"><%= render 'owner-reviews' %></div>
+      </li>
+    </ul>
+  </div>
+</div>
 
-<%= render 'confirm-request' %>
+<div class="row">
+  <div class="col s12">
+    <%= link_to('Create New Event', new_event_path) %>
+  </div>
+</div>
 
-<%= render 'sitter-events' %>
-
-<%= render 'owner-events' %>
-
-<%= render 'past-owners' %>
-
-<%= render 'past-sitters' %>
-
-<%= render 'sitter-reviews' %>
-
-<%= render 'owner-reviews' %>
-
-<%= render 'pets' %>
-
-<%= link_to('Create New Event', new_event_path) %>
