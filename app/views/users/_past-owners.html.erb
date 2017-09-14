@@ -3,6 +3,7 @@
     <% @events_past_as_sitter.each do |event| %>
       <div class="row card pad-t-1 pad-b-1">
         <div class="col s3 m3 l8">
+          <% if event.owner_id != nil %>
           <% owner = User.find(event.owner_id) %>
           <li>Owner: <%= owner.first_name %> <%= owner.last_name %></li>
           <li>Owner email: <%= owner.email %></li>
@@ -12,9 +13,12 @@
         <div class="col s3 m3 l2">
           <% unless Review.find_by(event: event, type_reviews: 'owner') %>
             <li> <%= link_to('Review', new_event_review_path(event), :class => 'waves-effect waves-light btn') %></li>
+          <% end %>
+          <% else %>
+        <li>No reviews awaiting your attention</li>
+        <% end %>
         </div>
       </div>
-      <% end %>
     <% end %>
   </ul>
 <% end %>
