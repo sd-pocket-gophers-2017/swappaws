@@ -1,7 +1,7 @@
-<%= form_for @event do |f| %>
+<%= form_tag('/events', method: 'post') do %>
 
-<%= f.hidden_field :sitter_id, value: current_user.id %>
-
+<%#= f.hidden_field :sitter_id, value: current_user.id %>
+ <%#= hidden_field_tag(:sitter_id, value: current_user.id) %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -17,33 +17,41 @@
   <% end %>
 
   <p>
-    <%= f.label :street_address %><br>
-    <%= f.text_field :street_address %>
+    <%= label_tag(:street_address, "Street Address") %><br>
+    <%= text_field_tag('event[street_address]') %>
   </p>
 
   <p>
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
+    <%= label_tag(:city, "City") %><br>
+    <%= text_field_tag('event[city]') %>
   </p>
 
   <p>
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
+    <%= label_tag(:state, "State") %><br>
+    <%= text_field_tag('event[state]') %>
   </p>
 
   <p>
-    <%= f.label :start_time %><br>
-    <%= f.date_select  :start_date_time %>
-    <%= f.time_select :start_date_time, :ignore_date => true %>
+    <%= label_tag(:start_date, "Start Date") %><br>
+    <%= text_field_tag('start_date', '', class:'datepicker') %>
   </p>
 
   <p>
-    <%= f.label :end_time %><br>
-    <%= f.date_select  :end_date_time %>
-    <%= f.time_select :end_date_time, :ignore_date => true %>
+    <%= label_tag(:start_time, "Start Time") %><br>
+    <%= text_field_tag('start_time', '', class:'timepicker') %>
   </p>
 
   <p>
-    <%= f.submit %>
+    <%= label_tag(:end_date, "End Date") %><br>
+    <%= text_field_tag('end_date', '', class:'datepicker') %>
+  </p>
+
+  <p>
+    <%= label_tag(:end_time, "End Time") %><br>
+    <%= text_field_tag('end_time', '', class:'timepicker') %>
+  </p>
+
+  <p>
+    <%= button_tag('Create') %>
   </p>
 <% end %>

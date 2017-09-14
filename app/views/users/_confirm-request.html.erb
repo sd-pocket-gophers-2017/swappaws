@@ -1,5 +1,4 @@
 <% if current_user.requests_pending.any?%>
-<h2>There are requests that require your attention!</h2>
   <% current_user.requests_pending.each do |request| %>
   <% if request.approved == nil %>
       <ul>
