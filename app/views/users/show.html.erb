@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col s12 m6 l3 offset-l1">
+  <div class="col s12 m6 l4 offset-l1">
     <h4 class="flow-text">Welcome, <%= current_user.first_name %>!</h4>
     <%if current_user.profile_photo.exists? %>
       <p><%= image_tag current_user.profile_photo.url(:medium) %></p>
@@ -12,34 +12,14 @@
         <%= f.file_field :profile_photo %>
       </p>
       <p>
-        <%= f.submit %>
+        <%= f.submit "Upload Photo", :class => "waves-effect waves-light btn" %>
       </p>
     <% end %>
   </div>
-  <div class="col s12 m6 l3 offset-l3">
-    <%= render 'pets' %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col s12">
-    <p><%= current_user.bio %> </p>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col s5">
+  <div class="col s6 m6 l6">
     <p class="flow-text teal-text">Tokens remaining: <%= "\u{1f31f}" * current_user.tokens %></p>
   </div>
-  <div class="col s5">
-    <div class="waves-effect waves-light btn">
-      <%= link_to('Create New Event', new_event_path) %>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col s12">
+  <div class="col s12 m9 l6 offset-s1">
     <ul class="collapsible" data-collapsible="accordion">
       <li>
         <div class="collapsible-header">Request Confirmation</div>
@@ -74,8 +54,10 @@
 </div>
 
 <div class="row">
+  <div class="col s12 m8 l6 offset-l3">
+    <%= render 'pets' %>
+  </div>
   <div class="col s12">
-    <%= link_to('Create New Event', new_event_path) %>
+    <p><%= current_user.bio %> </p>
   </div>
 </div>
-
