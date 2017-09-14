@@ -1,27 +1,5 @@
-<div class="row">
-	<div class="col s12 m12 l12">
-		<h2 class="flow-text">Here are all of our pets!</h2>
-	</div>
-	<br>
-	<ul class="card">
-		<div class="col s12 m9 l9 offset-l1">
-			<% @pets.each do |pet| %>
-				<div class="card striped">
-          <div class="row">
-            <div class="col s12 m4 l4">
-    				  <li class="flow-text"><%= link_to("#{pet.name}", pet_path(pet)) %></li><%= image_tag pet.photo.url(:square) %>
-            </div>
-            <div class="col s12 m4 l4 offset-l1 ">
-              <li>Age: <%= pet.age %></li>
-              <li>Breed: <%= pet.breed %></li>
-              <li>Size: <%= pet.size %></li>
-              <li>Description: <%= pet.description %></li>
-              <br>
-            </div>
-          </div>
-        </div>
-      <% end %>
-		</div>
-	</ul>
+<div class="carousel carousel-slider">
+  <% @pets.each do |pet| %>
+    <a class="carousel-item"><%=image_tag pet.photo.url(:custom)%></a>
+  <% end %>
 </div>
-
