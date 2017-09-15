@@ -1,3 +1,18 @@
+<div class="row pad-t-2">
+  <div class="col s6 m6 l6 offset-l1">
+    <%= form_for [@event, @request], url: confirmed_confirmation_event_request_path(@request) do |f| %>
+      <%= f.hidden_field :approved, :value => "true" %>
+      <%= f.submit "Approve", :class=>'waves-light waves-effect btn' %><br>
+    <% end %>
+<br>
+
+<%= form_for [@event, @request], url: denied_confirmation_event_request_path(@request) do |fr| %>
+  <%= fr.hidden_field :approved, :value => "false" %>
+  <%= fr.submit "Reject", :class=>'waves-light waves-effect btn' %>
+<% end %>
+</div>
+</div>
+
 <div class="row pad-t-6">
   <div class="col s12 m9 l9 offset-l1">
     <h4 class="flow-text">Confirm Request</h4>
@@ -5,26 +20,34 @@
 </div>
 <div class="row">
   <div class="col s12 m9 l9 offset-l1">
-    <% @events_as_owner.each do |event| %>
-        <% if event.reviews.any? %>
-          <p><strong>Here's what people have to say about <%= @owner.first_name %></strong></p>
-          <ul>
-            <% @events_as_owner.each do |event| %>
-              <% event.reviews.each do |review| %>
-                <li><%= review.body %></li>
-              <% end %>
-            <% end %>
-          </ul>
+    <%= image_tag @request.owner.profile_photo.url(:medium) %>
+    <p><strong>Here's what people have to say about <%= @owner.first_name %></strong></p>
+  </div>
+  <div class="col s12 m6 l6 offset-l1">
+  <ul class="card">
+    <% @owner.pets.each do |pet| %>
+      <div class="card striped">
+        <div class="row  pad-t-2">
+          <div class="col s12 m8 l8 offset-l2">
+            <li class="flow-text teal-text"><%= pet.name %></li>
+            <li><%= image_tag pet.photo.url(:medium) %></li>
+            <li><%= pet.description %></li>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="col s12 m9 l9 offset-l1">
+      <ul>
+        <% @events_as_owner.each do |event| %>
+          <% event.reviews.each do |review| %>
+            <li><%= review.body %></li>
+          <% end %>
         <% end %>
-      <% end %>
+      </ul>
+    </div>
+  </div>
 
-<%= form_for [@event, @request], url: confirmed_confirmation_event_request_path(@request) do |f| %>
-  <%= f.hidden_field :approved, :value => "true" %>
-  <%= f.submit "Approve", :class=>'waves-light waves-effect btn' %><br>
-<% end %>
-<br>
 
-<%= form_for [@event, @request], url: denied_confirmation_event_request_path(@request) do |fr| %>
-  <%= fr.hidden_field :approved, :value => "false" %>
-  <%= fr.submit "Reject", :class=>'waves-light waves-effect btn' %>
-<% end %>

@@ -1,53 +1,76 @@
 <%= form_for @pet do |f| %>
-
-<%= f.hidden_field :user_id, value: current_user.id %>
-
-  <% if @pet.errors.any? %>
-
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@pet.errors.count, "error") %> prohibited
-        this pet from being saved:
-      </h2>
-      <ul>
-        <% @pet.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+    <% if @pet.errors.any? %>
+      <div id="error_explanation">
+        <h4 class="flow-text">
+          <%= pluralize(@pet.errors.count, "error") %> prohibited
+          this pet from being saved:
+        </h4>
+        <ul>
+          <% @pet.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <div class="row">
+    <div class="col s12 m6 l6">
+      <p>
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </p>
     </div>
-  <% end %>
+    <div class="col s12 m6 l6">
+      <p>
+        <%= f.label :age %><br>
+        <%= f.number_field :age %>
+      </p>
+    </div>
+  </div>
 
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
+  <div class="row">
+    <div class="col s12 m6 l6">
+      <p>
+        <%= f.label :breed %><br>
+        <%= f.text_field :breed %>
+      </p>
+    </div>
+    <div class="col s12 m6 l6">
+      <p>
+        <%= f.label :size %><br>
+        <%= f.select :size, ['small', 'medium', 'large', 'very large', 'Clifford']%>
+      </p>
+    </div>
+  </div>
 
-  <p>
-    <%= f.label :age %><br>
-    <%= f.number_field :age %>
-  </p>
+  <div class="row">
+    <div class="col s12 m6 l6">
+      <p>
+        <%= f.label :description %><br>
+        <%= f.text_field :description %>
+      </p>
+    </div>
+      <%# This will need to be adjusted in both the migration and this form field for images%>
+    <div class="col s12 m6 l6">
+      <p>
+      <div class="pad-2">
+        <%= f.label :photo %>
+        <%= f.file_field :photo %>
+        </div>
+      </p>
+    </div>
+  </div>
 
-  <p>
-    <%= f.label :breed %><br>
-    <%= f.text_field :breed %>
-  </p>
-
-  <p>
-    <%= f.label :size %><br>
-    <%= f.select :size, ['small', 'medium', 'large', 'very large', 'Clifford']%>
-  </p>
-
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </p>
-  <%# This will need to be adjusted in both the migration and this form field for images%>
-  <p>
-    <%= f.label :photo %>
-    <%= f.file_field :photo %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
+  <div class="row">
+    <div class="col s12 m6 l6">
+      <p>
+        <%= f.submit :class=>"waves-light waves-effect btn" %>
+      </p>
+    </div>
+    <div class="pad-t-1">
+      <div class="col s12 m6 l6">
+        <%= link_to 'Back', profile_path, :class=>"wave-effect waves-light btn" %>
+      </div>
+    </div>
+  </div>
 <% end %>
