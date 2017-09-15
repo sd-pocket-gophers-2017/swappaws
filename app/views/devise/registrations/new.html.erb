@@ -1,60 +1,86 @@
-<div class="row">
-  <div class="col s12 m6 l6 offset-l3 flow-text">
-    <h2>Sign up</h2>
+<div class="row pad-t-1">
+  <div class="col s12 m6 l6 offset-l1">
+    <div class="card-panel">
+      <h4 class="flow-text">Signup</h4>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="red-text small-font">
+            <h6>
+              <%= devise_error_messages! %>
+            </h6>
+          </div>
+          <div class="row">
+            <div class="col s12 m6 l6">
+              <div class="field">
+                <%= f.label :first_name %><br />
+                <%= f.text_field :first_name, autofocus: true %>
+              </div>
+            </div>
+            <div class="col s12 m6 l6">
+              <div class="field">
+                <%= f.label :last_name %><br />
+                <%= f.text_field :last_name, autofocus: true %>
+              </div>
+            </div>
+          </div>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
+          <div class="row">
+            <div class="col s12 m6 l6">
+              <div class="field">
+                <%= f.label :Tell_us_a_bit_about_yourself %><br />
+                <%= f.text_field :bio, autofocus: true %>
+              </div>
+            </div>
+            <div class="col s12 m6 l6">
+              <div class="field">
+                <%= f.label :street_address %><br />
+                <%= f.text_field :street_address, autofocus: true %>
+              </div>
+            </div>
+          </div>
 
-      <div class="field">
-        <%= f.label :first_name %><br />
-        <%= f.text_field :first_name, autofocus: true %>
-      </div>
+          <div class="row">
+            <div class="col s12 m6 l6">
+              <div class="field">
+                <%= f.label :city %><br />
+                <%= f.text_field :city, autofocus: true %>
+              </div>
+            </div>
+            <div class="col s12 m6 l6">
+              <div class="field">
+                <%= f.label :state %><br />
+                <%= f.text_field :state, autofocus: true %>
+              </div>
+            </div>
+          </div>
 
-      <div class="field">
-        <%= f.label :last_name %><br />
-        <%= f.text_field :last_name, autofocus: true %>
-      </div>
+          <div class="row">
+            <div class="col s12 m12 l12">
+              <div class="field">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true %>
+              </div>
+            </div>
+          </div>
 
-      <div class="field">
-        <%= f.label :Tell_us_a_bit_about_yourself %><br />
-        <%= f.text_field :bio, autofocus: true %>
-      </div>
+          <div class="row">
+            <div class="col s12 m6 l6">
+              <div class="field">
+                <%= f.label :password %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "off" %>
+              </div>
+            </div>
+            <div class="col s12 m6 l6">
+              <div class="field">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              </div>
+            </div>
+          </div>
 
-      <div class="field">
-        <%= f.label :street_address %><br />
-        <%= f.text_field :street_address, autofocus: true %>
-      </div>
-
-      <div class="field">
-        <%= f.label :city %><br />
-        <%= f.text_field :city, autofocus: true %>
-      </div>
-
-      <div class="field">
-        <%= f.label :state %><br />
-        <%= f.text_field :state, autofocus: true %>
-      </div>
-
-
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
-
-      <div class="actions waves-effect waves-light btn">
+        <div class="actions waves-effect waves-light btn">
         <%= f.submit "Sign up" %>
       </div>
     <% end %>

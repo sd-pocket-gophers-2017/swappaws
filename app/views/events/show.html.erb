@@ -1,11 +1,13 @@
-<div class="card striped">
-  <div class="row">
-    <div class="col s12 m9 l9 offset-l1">
+<div class="row pad-2">
+<div class="col s12 m8 l8">
+<div class="card striped pad-1">
+  <div class="row flow-text">
+    <div class="col s12 m10 l10 offset-l1">
       <ul>
-        <li>Request <span class="flow-text"><%= @sitter.first_name %></span> to watch your pet</li>
-        <li>Start Date: <%= date_time_helper(@event.start_date_time) %></li>
-        <li>End Date: <%= date_time_helper(@event.end_date_time) %></li>
-        <li>Address: <%= @event.full_street_address%></li><br>
+        <li>Request <span class="flow-text teal-text"><strong><%= @sitter.first_name %></strong></span> to watch your pet</li>
+        <li><strong>Start Date: </strong><%= date_time_helper(@event.start_date_time) %></li>
+        <li><strong>End Date: </strong><%= date_time_helper(@event.end_date_time) %></li>
+        <li><strong>Address: </strong><%= @event.full_street_address%></li><br>
         <% if user_signed_in? && current_user.tokens >= 1 && @event.start_date_time > DateTime.now %>
           <%= link_to 'Request to Book', new_event_request_path(@event), :class => 'waves-light waves-effect btn' %>
         <% elsif user_signed_in? && current_user.tokens == 0 %>
@@ -21,4 +23,6 @@
       <h5 class="flow-text"><%= @event.full_street_address%></h5>
     </div>
   </div> -->
+</div>
+</div>
 </div>
