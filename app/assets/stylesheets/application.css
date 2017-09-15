@@ -399,6 +399,10 @@ input[type=text], input[type=password], input[type=textarea], textarea {
   padding-top: 2em;
 }
 
+.pad-t-3 {
+  padding-top: 2em;
+}
+
 .pad-t-6 {
   padding-top: 6em;
 }
