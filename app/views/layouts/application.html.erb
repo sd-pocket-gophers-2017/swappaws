@@ -24,9 +24,9 @@
             <a href="/" class="brand-logo"><%= image_tag("swap_paws_logo.png", size: '223x58') %></a>
             <ul class="right hide-on-med-and-down">
               <li><%= link_to('Home', pets_path) %></li>
-              <li><%= link_to('Current Events', events_path) %></li>
+              <li><%= link_to('Book a Sitter', events_path) %></li>
               <% if user_signed_in? %>
-                <li><%= link_to('Create New Event', new_event_path) %></li>
+                <li><%= link_to('Host a Pet', new_event_path) %></li>
                 <li><%= link_to("#{current_user.first_name}", profile_path) %></li>
                 <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
               <% else %>

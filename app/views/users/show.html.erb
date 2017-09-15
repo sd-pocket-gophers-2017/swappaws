@@ -13,11 +13,15 @@
       </p>
       <p>
         <%= f.submit "Upload Photo", :class => "waves-effect waves-light btn" %>
+
+        <p>Bio: <%= current_user.bio %> </p>
+
       </p>
     <% end %>
   </div>
   <div class="col s6 m6 l6">
     <p class="flow-text teal-text">Tokens remaining: <%= "\u{1f31f}" * current_user.tokens %></p>
+    <%= link_to('Purchase More Tokens', purchase_path, { :class => "waves-effect waves-light btn pad-b-2" }) %>
   </div>
   <div class="col s12 m9 l6 offset-s1">
     <ul class="collapsible" data-collapsible="accordion">
@@ -26,11 +30,11 @@
         <div class="collapsible-body"><%= render 'confirm-request' %></div>
       </li>
       <li>
-        <div class="collapsible-header">Upcoming Pet Assignments</div>
+        <div class="collapsible-header">Upcoming Hostings</div>
         <div class="collapsible-body"><%= render 'sitter-events' %></div>
       </li>
       <li>
-        <div class="collapsible-header">Upcoming Pet Care</div>
+        <div class="collapsible-header">Upcoming Sitters</div>
         <div class="collapsible-body"><%= render 'owner-events' %></div>
       </li>
       <li>
@@ -57,7 +61,4 @@
   <div class="col s12 m8 l8 offset-l1">
     <%= render 'pets' %>
   </div>
-</div>
-<div class="col s12">
-  <p><%= current_user.bio %> </p>
 </div>

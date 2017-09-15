@@ -1,14 +1,14 @@
 <%= form_tag '/events', method: :get do %>
-  <p><i class="material-icons">search</i></p>
+  <div class="pad-t-2">
     <div class="card-panel">
       <div class="row">
         <div class="col s6 m6 l6 offset-s2">
-          <%= label_tag(:distance, "distance") %>
-          <%= text_field(:event, :distance)%>
-        </div>
-        <div class="col s6 m6 l6 offset-s2">
           <%= label_tag(:start_date, "Start Date:") %>
           <%= date_field(:event, :start_date) %>
+        </div>
+        <div class="col s6 m6 l6 offset-s2">
+          <%= label_tag(:distance, "distance") %>
+          <%= text_field(:event, :distance)%>
         </div>
         <div class="col s6 m6 l6 offset-s2">
           <%= label_tag(:end_date, "End Date:") %>
@@ -20,3 +20,4 @@
       </div>
     </div>
 <% end %>
+</div>

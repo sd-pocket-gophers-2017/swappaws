@@ -5,9 +5,11 @@
 </div>
 <div class="row">
   <div class="col s12 m9 l9 offset-l1">
+  <%= image_tag @request.owner.profile_photo.url(:medium) %>
     <% @events_as_owner.each do |event| %>
         <% if event.reviews.any? %>
           <p><strong>Here's what people have to say about <%= @owner.first_name %></strong></p>
+
           <ul>
             <% @events_as_owner.each do |event| %>
               <% event.reviews.each do |review| %>
@@ -17,7 +19,10 @@
           </ul>
         <% end %>
       <% end %>
-
+    </div>
+  </div>
+<div class="row">
+  <div class="col s12 m9 l9 offset-l1">
 <%= form_for [@event, @request], url: confirmed_confirmation_event_request_path(@request) do |f| %>
   <%= f.hidden_field :approved, :value => "true" %>
   <%= f.submit "Approve", :class=>'waves-light waves-effect btn' %><br>
@@ -28,3 +33,5 @@
   <%= fr.hidden_field :approved, :value => "false" %>
   <%= fr.submit "Reject", :class=>'waves-light waves-effect btn' %>
 <% end %>
+</div>
+</div>
