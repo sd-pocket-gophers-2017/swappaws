@@ -11,9 +11,8 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
 //= require_tree .
 
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
     $('select').material_select();
 });
