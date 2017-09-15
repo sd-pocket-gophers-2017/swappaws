@@ -30,7 +30,7 @@ $(document).ready(function() {
   // $('.carousel').carousel();
   setInterval(function() {
     $('.carousel').carousel('next');
-  }, 2005)
+  }, 2400)
   // $('.carousel').carousel({
   //         full_width:true,
   //         time_constant: 100
