@@ -1,25 +1,32 @@
-<%= form_for [@event, @request] do |f| %>
-
-  <% if @request.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@request.errors.count, "error") %> prohibited
-        this request from being saved:
-      </h2>
-      <ul>
-        <% @request.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+<div class="pad-2">
+  <%= form_for [@event, @request] do |f| %>
+    <% if @request.errors.any? %>
+      <div id="error_explanation">
+        <h6 red-text>
+          <%= pluralize(@request.errors.count, "error") %> prohibited
+            this request from being saved:
+          <ul>
+            <% @request.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </h6>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="col s12 m8 l8">
+        <div class="card-panel">
+          <p>
+            <%= f.label :Message%><br>
+            <%= f.text_area :note, cols:35, rows:10 %>
+          </p>
+        </div>
+      </div>
+      <div class="col s12 m8 l8">
+        <p>
+          <%= f.submit  :class => 'waves-light waves-effect btn', data: { confirm: "Are you sure you wish make this request?" }%>
+        </p>
+      </div>
     </div>
   <% end %>
-
-  <p>
-    <%= f.label :Message%><br>
-    <%= f.text_area :note, cols:35, rows:10 %>
-  </p>
-
-  <p>
-    <%= f.submit  :class => 'waves-light waves-effect btn', data: { confirm: "Are you sure you wish make this request?" }%>
-  </p>
-<% end %>
+</div>
