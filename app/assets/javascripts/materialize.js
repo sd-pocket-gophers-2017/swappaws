@@ -21,18 +21,13 @@ $(document).ready(function() {
   });
   $('.carousel.carousel-slider').carousel({fullWidth: true});
   // Next slide
-  $('.carousel').carousel('next');
-  // Previous slide
-  $('.carousel').carousel('prev');
-
-  // autoplay()
   //
   //
   // function autoplay() {
   //   $('.carousel').carousel('next');
   //   setTimeout(autoplay, 4500);
-  // }
-  $('.carousel').carousel();
+  // // }
+  // $('.carousel').carousel();
   setInterval(function() {
     $('.carousel').carousel('next');
   }, 2005)
