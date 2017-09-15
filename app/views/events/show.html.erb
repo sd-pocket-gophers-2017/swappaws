@@ -1,19 +1,24 @@
-
-<div class="row">
-  <div class="col s12 m9 l9 offset-l1">
-    <ul>
-      <li><span class="flow-text"><%= @sitter.first_name %></span> would like to have a companion for his pet</li>
-      <li>Start Date: <%= date_time_helper(@event.start_date_time) %></li>
-      <li>End Date: <%= date_time_helper(@event.end_date_time) %></li><br>
-      <% if user_signed_in? && current_user.tokens >= 1 && @event.start_date_time > DateTime.now %>
-        <%= link_to 'Request to Book', new_event_request_path(@event) %>
-      <% elsif user_signed_in? && current_user.tokens == 0 %>
-        <p>It looks like you're all out of tokens! Purchase more if you want to book another sitting</p>
-        <%= link_to 'Purchase tokens', purchase_path %>
-      <% else %>
-        <p><%= link_to 'Create a user account', new_user_registration_path %> or <%= link_to 'login', new_user_session_path %> to book this sitting!</p>
-      <% end %>
-    </ul>
-  </div>
-<h2><%= @event.full_street_address%></h2>
+<div class="card striped">
+  <div class="row">
+    <div class="col s12 m9 l9 offset-l1">
+      <ul>
+        <li><span class="flow-text"><%= @sitter.first_name %></span> would like to have a companion for his pet</li>
+        <li>Start Date: <%= date_time_helper(@event.start_date_time) %></li>
+        <li>End Date: <%= date_time_helper(@event.end_date_time) %></li>
+        <li>Address: <%= @event.full_street_address%></li><br>
+        <% if user_signed_in? && current_user.tokens >= 1 && @event.start_date_time > DateTime.now %>
+          <%= link_to 'Request to Book', new_event_request_path(@event), :class => 'waves-light waves-effect btn' %>
+        <% elsif user_signed_in? && current_user.tokens == 0 %>
+          <p>It looks like you're all out of tokens! Purchase more if you want to book another sitting</p>
+          <%= link_to 'Purchase tokens', purchase_path %>
+        <% else %>
+          <p><%= link_to 'Create a user account', new_user_registration_path %> or <%= link_to 'login', new_user_session_path %> to book this sitting!</p>
+        <% end %>
+      </ul>
+    </div>
+  <!-- <div class="row">
+    <div class="col s12 m6 l6 offset-l1">
+      <h5 class="flow-text"><%= @event.full_street_address%></h5>
+    </div>
+  </div> -->
 </div>

@@ -3,7 +3,7 @@
       <% if sitter_event.reviews.any? %>
     <ul>
     <% @events_past_as_sitter.each do |event| %>
-      <li>Owner: <%= event.owner.first_name %> <%= event.owner.last_name %></li>
+      <li><strong><%= event.owner.first_name %> <%= event.owner.last_name %></strong></li>
       <li>Owner email: <%= event.owner.email %></li>
       <% event.owner_reviews.each do |review| %>
         <li><%= review.body %></li>
