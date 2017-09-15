@@ -1,8 +1,13 @@
-<h2>Purchase more Tokens</h2>
+<div class="pad-t-3 pad-l-2">
+
+<div class="row">
+  <div class="col s12 m8 l8 offset-l1">
+  <div class="card-panel pad-2">
+<h4 class="flow-text">Purchase more Tokens</h4>
 <%= form_for @user, :url => url_for(:controller => 'users', :action => 'update_tokens') do |f| %>
 
 <%= f.hidden_field :user_id, value: current_user.id %>
-  
+
   <% if current_user.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -16,13 +21,21 @@
       </ul>
     </div>
   <% end %>
-
+  <div class ="row">
+<div class="col s12 m5 l5">
   <p>
     <%= f.label "How many tokens would you like to purchase?" %><br>
     <%= f.number_field :tokens %>
   </p>
-
+</div>
+<div class="col s12 m5 l5 offset-l1">
   <p>
-    <%= f.submit "Complete Purchase" %>
+    <%= f.submit "Complete Purchase", :class=>"waves-light waves-effect btn" %>
   </p>
+  </div>
+  </div>
 <% end %>
+</div>
+</div>
+</div>
+</div>
