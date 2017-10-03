@@ -12,12 +12,19 @@
 
 # Technology
   Ruby on Rails application 
+  
   CSS framework, Materialize
+  
   JQuery and Javascript
+  
   Active Record, Postgresql Database
+  
   Amazon S3 API
+  
   Geolocation API
+  
   Git version control
+  
   Agile Methodology
  
 # Features
