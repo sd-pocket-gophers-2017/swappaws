@@ -2,7 +2,9 @@
 
 # Team
   Mark - @markjnkim
+  
   Blake - @blakeynwa
+  
   Carter - @carterm912
 
 # Concept
