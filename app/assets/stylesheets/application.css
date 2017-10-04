@@ -391,6 +391,23 @@ input[type=text], input[type=password], input[type=textarea], textarea {
   padding-right: 1em;
 }
 
+.pad-s-2 {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+.pad-s-3 {
+  padding-left: 3em;
+  padding-right: 3em;
+}
+.pad-s-5 {
+  padding-left: 3em;
+  padding-right: 3em;
+}
+.pad-s-7 {
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
 .pad-t-1 {
   padding-top: 1em;
 }
@@ -505,4 +522,3 @@ input[type=text], input[type=password], input[type=textarea], textarea {
 .comment-bubble:hover {
   background-position: 0 -33px;
 }
-
