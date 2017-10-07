@@ -20,9 +20,9 @@
     <div class="container">
       <!-- <div class="navbar-fixed"> -->
         <nav class='cyan darken-4'>
-          <div class="nav-wrapper ">
-            <a href="/" class="brand-logo"><%= image_tag("swap_paws_logo.png", size: '223x58') %></a>
-            <ul class="right hide-on-med-and-down">
+          <div class="nav-wrapper">
+            <a href="/" class="brand-logo hide-on-small-and-down left"><%= image_tag("swap_paws_logo.png", size: '223x58') %></a>
+            <ul class="right">
               <li><%= link_to('Home', pets_path) %></li>
               <li><%= link_to('Book a Sitter', events_path) %></li>
               <% if user_signed_in? %>
@@ -34,6 +34,10 @@
                 <li><%= link_to('Sign Up', new_user_registration_path) %></li>
               <% end %>
             </ul>
+            <!-- <ul id="slide-out" class="side-nav">
+              <li><div class="user-view">
+                <div class="background">
+                   -->
           </div>
         </nav>
       <!-- </div> -->
