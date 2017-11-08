@@ -1,5 +1,4 @@
-# Swap Paws
-<img src="https://github.com/markjnkim/swappaws/blob/master/app/assets/images/swap_paws_logo.png" width="100" />
+<img src="https://github.com/markjnkim/swappaws/blob/master/app/assets/images/swap_paws_logo.png" width="300" />
 ## Description
 Finally, relief for pet owners and their families has arrived.  We have created an app that allows pet owners respite from overpriced pet hotels and dirty kennels with Swap Paws.  This app connects pet owners with other pet lovers so your pet can be spared a traumatic experience and you can save money.  Pet owners can trade services with other pet owners as well as purchase services. Built with :heart: in collaboration with [BlakeMeyer](https://github.com/blakeynwa) and [CarterMcGee](https://github.com/carterm912).
 
