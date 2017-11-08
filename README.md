@@ -9,7 +9,8 @@ Finally, relief for pet owners and their families has arrived.  We have created 
 * ___Ruby Version___: 2.3.4
 * ___Rails Version___: 5.1.3
 * ___Database___: PostgreSQL 0.18
-* ___Dependencies___: Puma 3.7, Devise, AWS S3, Geolocation API, Paperclip, Materialize CDN
+* ___Dependencies___: Puma 3.7, Devise, AWS S3, Geolocation API, Paperclip, Materialize CDN|
+------------------------------ | 
 
 ## Functionality
 
