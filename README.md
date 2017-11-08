@@ -14,8 +14,8 @@ Finally, relief for pet owners and their families has arrived.  We have created 
 ## Functionality
 
 ### Book Pet Services
-<div style="text-align: right"> Search through the list of available pet owners with the date, time, and distance.  Pick the right pet sitter by reading their reviews.</div>| 
------------------------------- | 
+<div style="text-align: right"> Search through the list of available pet owners with the date, time, and distance.  Pick the right pet sitter by reading their reviews.
+------------------------------ | </div>| 
 
 ### Pet Reviews
 Creating a level of trust was intrinsic in allowing a loved pet in a stranger's care, so we felt it was important to be able to review the experience and crowd source ratings.  |
