@@ -54,6 +54,6 @@ $(document).ready(function() {
   //             $('.fa-angle-right').click();
   //           }, 7000);
   //     });
-
+  $(".button-collapse").sideNav();
 
 })

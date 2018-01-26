@@ -1,0 +1,91 @@
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #2962ff !important;
+  box-shadow: 0 1px 0 0 #2962ff !important;
+}
+
+.input-field input[type=email]:focus {
+  border-bottom: 1px solid #2962ff !important;
+  box-shadow: 0 1px 0 0 #2962ff !important;
+}
+
+.input-field input[type=password]:focus {
+  border-bottom: 1px solid #2962ff !important;
+  box-shadow: 0 1px 0 0 #2962ff !important;
+}
+
+.input-field textarea:focus {
+  border-bottom: 1px solid #2962ff !important;
+  box-shadow: 0 1px 0 0 #2962ff !important;
+}
+
+.picker__date-display {
+  background-color: #2962ff;
+}
+
+.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
+  background-color:#2962ff;
+}
+
+
+.picker { outline: none; } /* Optional feature */
+/* Header - Day of the week */
+.picker__weekday-display { background-color: #2962ff;
+    font-weight: 600;}
+/* Body - Today info */
+.picker__date-display { background-color: #2962ff; }
+/* Buttons of actions */
+.picker__nav--prev:hover { background-color: #bbdefb; }
+.picker__nav--next:hover { background-color: #bbdefb; }
+
+.picker__today { color: #2962ff; }
+.picker__clear { /* If you want to customize */ }
+.picker__close { color: #2962ff; }
+.btn-flat.picker__today:active { background-color: #bbdefb; }
+.btn-flat.picker__close:active { background-color: #bbdefb; }
+.btn-flat.picker__clear:active { background-color: #bbdefb; }
+
+/* Every month of the year except: today */
+.picker__day { /* If you want to customize */ }
+.picker__day:hover { /* If you want to customize */ }
+.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
+    color: #F5F4F3;
+    font-weight: 700;
+}
+.picker__day.picker__day--infocus.picker__day--selected.picker__day--highlighted { background-color: #2962ff; }
+/* Today */
+.picker__day.picker__day--infocus.picker__day--today.picker__day--selected.picker__day--highlighted { background-color: #2962ff; }
+.picker__day.picker__day--today
+{ color: #2962ff;
+  font-weight: 700; }
+
+.clockpicker-canvas line {
+  stroke: #2962ff;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.clockpicker-canvas-bg {
+    stroke: none;
+    fill: #2962ff;
+}
+
+.clockpicker-canvas-bearing {
+    stroke: none;
+    fill: #2962ff;
+}
+
+.clockpicker-tick:hover {
+  background-color: #bbdefb;
+}
+
+/*@media only screen and (min-device-width : 320px) and (max-device-width : 600px) {
+  .container {
+    width: 95% !important;
+    max-width: initial;
+  }
+}*/
+
+.collection .collection-item:not(.active):hover {
+    background-color: #ddd;
+}
