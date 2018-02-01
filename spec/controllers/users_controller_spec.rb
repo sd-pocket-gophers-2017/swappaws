@@ -9,4 +9,11 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
+  describe "GET /" do 
+    it "welcomes page visitor, user or non user" do 
+      visit '/'
+      expect(page).to have_content('Kennels and boarding can be ruff.')
+    end
+  end
+
 end
