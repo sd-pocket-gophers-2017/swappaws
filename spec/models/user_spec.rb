@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  user = User.create!(first_name: "Blake", last_name: "Meyer", email: Faker::Internet.email, password: "password")
+  user = User.create!(email: Faker::Internet.email, password: "password", first_name: "Blake", last_name: "Meyer", street_address:Faker::Address.street_address, city:Faker::Address.city, state: Faker::Address.state, longitude: Faker::Address.longitude, latitude: Faker::Address.latitude)
 
   describe "user creation" do
     it "has a readable first name" do
