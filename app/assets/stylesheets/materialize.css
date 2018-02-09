@@ -1,46 +1,46 @@
-/* label underline focus color */
+/* label underline focus color 07998a */
 .input-field input[type=text]:focus {
-  border-bottom: 1px solid #2962ff !important;
-  box-shadow: 0 1px 0 0 #2962ff !important;
+  border-bottom: 1px solid #07998a !important;
+  box-shadow: 0 1px 0 0 #07998a !important;
 }
 
-.input-field input[type=email]:focus {
-  border-bottom: 1px solid #2962ff !important;
-  box-shadow: 0 1px 0 0 #2962ff !important;
+.-field input[type=email]:focus {
+  border-bottom: 1px solid #07998a !important;
+  box-shadow: 0 1px 0 0 #07998a !important;
 }
 
 .input-field input[type=password]:focus {
-  border-bottom: 1px solid #2962ff !important;
-  box-shadow: 0 1px 0 0 #2962ff !important;
+  border-bottom: 1px solid #07998a !important;
+  box-shadow: 0 1px 0 0 #07998a !important;
 }
 
 .input-field textarea:focus {
-  border-bottom: 1px solid #2962ff !important;
-  box-shadow: 0 1px 0 0 #2962ff !important;
+  border-bottom: 1px solid #07998a !important;
+  box-shadow: 0 1px 0 0 #07998a !important;
 }
 
 .picker__date-display {
-  background-color: #2962ff;
+  background-color: #07998a;
 }
 
 .picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
-  background-color:#2962ff;
+  background-color:#07998a;
 }
 
 
 .picker { outline: none; } /* Optional feature */
 /* Header - Day of the week */
-.picker__weekday-display { background-color: #2962ff;
+.picker__weekday-display { background-color: #07998a;
     font-weight: 600;}
 /* Body - Today info */
-.picker__date-display { background-color: #2962ff; }
+.picker__date-display { background-color: #07998a; }
 /* Buttons of actions */
 .picker__nav--prev:hover { background-color: #bbdefb; }
 .picker__nav--next:hover { background-color: #bbdefb; }
 
-.picker__today { color: #2962ff; }
+.picker__today { color: #07998a; }
 .picker__clear { /* If you want to customize */ }
-.picker__close { color: #2962ff; }
+.picker__close { color: #07998a; }
 .btn-flat.picker__today:active { background-color: #bbdefb; }
 .btn-flat.picker__close:active { background-color: #bbdefb; }
 .btn-flat.picker__clear:active { background-color: #bbdefb; }
@@ -52,27 +52,27 @@
     color: #F5F4F3;
     font-weight: 700;
 }
-.picker__day.picker__day--infocus.picker__day--selected.picker__day--highlighted { background-color: #2962ff; }
+.picker__day.picker__day--infocus.picker__day--selected.picker__day--highlighted { background-color: #07998a; }
 /* Today */
-.picker__day.picker__day--infocus.picker__day--today.picker__day--selected.picker__day--highlighted { background-color: #2962ff; }
+.picker__day.picker__day--infocus.picker__day--today.picker__day--selected.picker__day--highlighted { background-color: #07998a; }
 .picker__day.picker__day--today
-{ color: #2962ff;
+{ color: #07998a;
   font-weight: 700; }
 
 .clockpicker-canvas line {
-  stroke: #2962ff;
+  stroke: #07998a;
   stroke-width: 4;
   stroke-linecap: round;
 }
 
 .clockpicker-canvas-bg {
     stroke: none;
-    fill: #2962ff;
+    fill: #07998a;
 }
 
 .clockpicker-canvas-bearing {
     stroke: none;
-    fill: #2962ff;
+    fill: #07998a;
 }
 
 .clockpicker-tick:hover {
@@ -83,7 +83,7 @@
   .container {
     width: 95% !important;
     max-width: initial;
-  }
+  }  07998a
 }*/
 
 .collection .collection-item:not(.active):hover {
