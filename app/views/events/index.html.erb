@@ -1,10 +1,8 @@
-<div class="row">
-  <div class="col s9 pull-3">
-    <% if user_signed_in? %>
-      <%= render 'search' %>
-    <% end %>
-  </div>
-</div>
+
+<% if user_signed_in? %>
+  <%= render 'search' %>
+<% end %>
+
 
 <div class="row">
   <div class="col s9 pull-3">
