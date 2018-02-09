@@ -1,0 +1,29 @@
+<%= form_tag '/events', method: :get do %>
+  <!-- <div class="pad-t-2"> -->
+  <!-- <div class="row">
+    <div class="col s10 pull-2"> -->
+      <div class="card-panel">
+        <span class="card-title flow-text teal-text pad-s-3">Search</span>
+        <div class="row section">
+          <div class="col s12 m6 l6">
+            <%= label_tag(:start_date, "Start Date:") %>
+            <%= date_field(:event, :start_date) %>
+          </div>
+          <div class="col s12 m6 l6">
+            <%= label_tag(:end_date, "End Date:") %>
+            <%= date_field(:event, :end_date) %>
+          </div>
+          <div class="col s12 m6 l6">
+            <%= label_tag(:distance, "distance") %>
+            <%= text_field(:event, :distance) %>
+          </div>
+          <div class="col s2">
+            <div class="pad-2">
+              <%= submit_tag("Search", class: "wave-effect waves-light btn") %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- </div>
+  </div> -->
+<% end %>

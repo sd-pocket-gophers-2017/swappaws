@@ -1,13 +1,23 @@
+<div class="row">
+  <div class="col s12">
+    <div class="card-panel cyan darken-2">
+      <h4 class ="white-text flow-text pad-s-7 text-align: center">Connect local pet owners to share pet care</h4>
+    </div>
+  </div>
+</div>
+
 <div class="carousel carousel-slider">
   <% @pets.each do |pet| %>
     <a class="carousel-item"><%=image_tag pet.photo.url(:custom)%></a>
   <% end %>
 </div>
-<div class="row">
-  <div class="col s12 m12 l12 offset-l2 ">
-    <h3 class="cyan-text darken-4">Kennels and boarding can be ruff.  </h3>
-  </div>
-  <div class="col s12 m12 l12 offset-l1">
-    <h4 class="cyan-text darken-4"> Use Swappaws to connect with pet lovers to watch your pets. </h3>
+<!-- <div class="row">
+  <div class="col s12 m11 l11 offset-l1 offset-m1">
+    <h3 class="cyan-text darken-4">Kennels and boarding can be ruff</h3>
   </div>
 </div>
+<div class="row">
+  <div class="col s12 m11 l11 offset-l1 offset-m1">
+    <h4 class="cyan-text darken-4"> Use Swappaws to connect with pet lovers to watch your pets</h3>
+  </div>
+</div> -->
