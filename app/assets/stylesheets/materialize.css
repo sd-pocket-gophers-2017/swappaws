@@ -1,6 +1,6 @@
 /* label underline focus color 07998a */
 .input-field input[type=text]:focus {
-  border-bottom: 1px solid #07998a !important;
+  border-bottom: 1px solid #6ddfd4 !important;
   box-shadow: 0 1px 0 0 #07998a !important;
 }
 
