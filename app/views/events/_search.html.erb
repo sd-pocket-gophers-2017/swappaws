@@ -13,11 +13,11 @@
         <div class="row section">
           <div class="col s12 m6 l6">
             <%= label_tag(:start_date, "Start Date:") %>
-            <%= date_field(:event, :start_date, min: Date.today, autofocus: false, :required => "required", class: "datepicker", class: "valid") %>
+            <%= date_field(:event, :start_date, min: Date.today, :required => "required", class: "valid") %>
           </div>
           <div class="col s12 m6 l6">
             <%= label_tag(:end_date, "End Date:") %>
-            <%= date_field(:event, :end_date,  min: ":start_date", :required => "required", class: "datepicker", class: "valid") %>
+            <%= date_field(:event, :end_date,  min: Date.today, :required => "required", class: "valid") %>
           </div>
           <div class="col s12 m6 l6 input-field">
             <%= label_tag(:distance, "distance") %>
