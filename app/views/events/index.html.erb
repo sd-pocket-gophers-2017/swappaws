@@ -1,10 +1,8 @@
-<div class="row">
-  <div class="col s9 pull-3">
-    <% if user_signed_in? %>
-      <%= render 'search' %>
-    <% end %>
-  </div>
-</div>
+
+<% if user_signed_in? %>
+  <%= render 'search' %>
+<% end %>
+
 
 <div class="row">
   <div class="col s9 pull-3">
@@ -31,5 +29,11 @@
         <% end %>
       <% end %>
     </ul>
+  </div>
+  <div class="col s3 push-9">
+    <div class="pad-t-1">
+      <%= image_tag("light_bulb.gif", :alt => "light bulb", size: '30x30') %>
+      <span class="flow-text teal-text">Choose from the list of available sitters</span>
+    </div>
   </div>
 </div>

@@ -17,41 +17,40 @@
   </head>
 
   <body>
+    <div class="row">
+      <nav class='cyan darken-4 nav-extended'>
+        <div class="nav-wrapper">
+          <a href="/" class="brand-logo"><%= image_tag("swap_paws_logo.png", size: '223x58') %></a>
+          <a href='#' data-activates='mobile-demo' class='button-collapse'>
+            <i class='material-icons'>menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><%= link_to('Home', pets_path) %></li>
+            <li><%= link_to('Need a Sitter', events_path) %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to('Host a Pet', new_event_path) %></li>
+              <li><%= link_to("#{current_user.first_name}", profile_path) %></li>
+              <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+            <% else %>
+              <li><%= link_to('Login', new_user_session_path) %></li>
+              <li><%= link_to('Sign Up', new_user_registration_path) %></li>
+            <% end %>
+          </ul>
+          <ul class='side-nav' id='mobile-demo'>
+            <li><%= link_to('Home', pets_path) %></li>
+            <li><%= link_to('Need a Sitter', events_path) %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to('Host a Pet', new_event_path) %></li>
+              <li><%= link_to("#{current_user.first_name}", profile_path) %></li>
+              <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+            <% else %>
+              <li><%= link_to('Login', new_user_session_path) %></li>
+              <li><%= link_to('Sign Up', new_user_registration_path) %></li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    </div>
     <div class="container">
-      <div class="row">
-        <nav class='cyan darken-4 nav-extended'>
-          <div class="nav-wrapper">
-            <a href="/" class="brand-logo"><%= image_tag("swap_paws_logo.png", size: '223x58') %></a>
-            <a href='#' data-activates='mobile-demo' class='button-collapse'>
-              <i class='material-icons'>menu</i></a>
-            <ul class="right hide-on-med-and-down">
-              <li><%= link_to('Home', pets_path) %></li>
-              <li><%= link_to('Need a Sitter', events_path) %></li>
-              <% if user_signed_in? %>
-                <li><%= link_to('Host a Pet', new_event_path) %></li>
-                <li><%= link_to("#{current_user.first_name}", profile_path) %></li>
-                <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
-              <% else %>
-                <li><%= link_to('Login', new_user_session_path) %></li>
-                <li><%= link_to('Sign Up', new_user_registration_path) %></li>
-              <% end %>
-            </ul>
-            <ul class='side-nav' id='mobile-demo'>
-              <li><%= link_to('Home', pets_path) %></li>
-              <li><%= link_to('Need a Sitter', events_path) %></li>
-              <% if user_signed_in? %>
-                <li><%= link_to('Host a Pet', new_event_path) %></li>
-                <li><%= link_to("#{current_user.first_name}", profile_path) %></li>
-                <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
-              <% else %>
-                <li><%= link_to('Login', new_user_session_path) %></li>
-                <li><%= link_to('Sign Up', new_user_registration_path) %></li>
-              <% end %>
-            </ul>
-          </div>
-        </nav>
-      </div>
-
       <%= yield %>
     </div>
   </body>
