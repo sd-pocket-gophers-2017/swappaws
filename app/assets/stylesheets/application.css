@@ -417,15 +417,7 @@ input[type=text], input[type=password], input[type=textarea], textarea {
 }
 
 .pad-t-3 {
-  padding-top: 3em;
-}
-
-.pad-t-4 {
-  padding-top: 4em;
-}
-
-.pad-t-5 {
-  padding-top: 5em;
+  padding-top: 2em;
 }
 
 .pad-t-6 {
