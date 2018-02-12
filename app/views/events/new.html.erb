@@ -1,12 +1,24 @@
 <div class="row">
-  <div class="col s12 m8 l8 offset-l1">
-<h4 class="flow-text pad-b-2 pad-t-2">Host a Pet</h4>
-<div class="row">
-  <div class="col s12 m8 l8">
-    <div class="card-panel striped">
-      <%= render 'form' %>
+  <div class="s8 offset-1">
+    <h4 class="flow-text">
+      Hello <i><b><%= current_user.first_name%></b></i>, would you like to host a pet?
+    </h4>
+  </div>
+</div>
+
+
+          <%= render 'form' %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-</div>
-</div>
+
+
+
+<!-- <div class="row">
+<div class="col s12 m8 l8 offset-l1">
+<h4 class="flow-text pad-b-2 pad-t-2">Host a Pet</h4>
+<div class="row">
+<div class="col s12 m8 l8">
+<div class="card-panel striped"> -->

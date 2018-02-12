@@ -7,8 +7,7 @@
 <div class="row">
   <div class="col s9 pull-3">
     <% if @events.any? %>
-    <!-- <h2> #{@events.any?} </h2> -->
-    <ul class="card-panel grey lighten-4">
+    <ul class="card-panel striped grey lighten-4">
       <span class="card-title teal-text flow-text pad-s-3 pad-b-4">Available Sitters</span>
     	<% @events.each do |event| %>
         <% if available?(event) %>
@@ -36,7 +35,7 @@
   <% if @events.any? %>
     <div class="col s3 push-9">
       <div class="pad-t-1">
-        <%= image_tag("light_bulb.gif", :alt => "light bulb", size: '30x30') %>
+        <%= image_tag("light_bulb.gif", :alt => "light bulb", :size => '30x30') %>
         <span class="flow-text teal-text">Choose from the list of available sitters</span>
       </div>
     </div>

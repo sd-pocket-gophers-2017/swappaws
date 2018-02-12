@@ -10,7 +10,6 @@ class EventsController < ApplicationController
     if params.has_key?(:event) && params[:event].has_key?(:start_date) # params are there
       start_date = DateTime.parse(event_params[:start_date])
       end_date = DateTime.parse(event_params[:end_date])
-
       @events = Event.where(start_date_time: start_date..end_date).near([current_user.latitude,current_user.longitude], event_params[:distance]).order(:start_date_time)
     else
       @events = Event.order(:start_date_time)
@@ -56,14 +55,8 @@ class EventsController < ApplicationController
 
   def book
     @event = Event.find(params[:id])
-    # @user = current_user
     if @event.owner_id == nil
-      # @sitter = User.find_by(id: @event.sitter_id)
       @event.pending_ids << current_user.id
-      # @user.tokens -= 1
-      # @sitter.tokens += 1
-      # @user.save
-      # @sitter.save
       @event.save
       redirect_to confirmation_event_path
     else
@@ -78,11 +71,8 @@ class EventsController < ApplicationController
   end
 
   private
+
     def event_params
       params.require(:event).permit(:longitude, :latitude, :street_address, :city, :state, :sitter_id, :start_date_time, :end_date_time, :owner_id, :distance, :start_date, :end_date)
     end
-
-    # def event_search_params
-    #   params.require(:event).require(:start_date, :end_date)
-    # end
 end
