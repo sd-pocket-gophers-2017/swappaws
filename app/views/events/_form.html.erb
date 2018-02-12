@@ -13,87 +13,88 @@
       </ul>
     </div>
   <% end %>
-<% end %>
+
 <!--Host a Pet form  -->
-<div class="row">
-  <div class="col s9 pull-3">
-    <div class="card-panel">
-      <span class="card-title flow-text teal-text pad-s-3">Host a Pet</span>
-      <div class="row">
-        <div class="col s12">
-          <p>
-            <%= label_tag(:street_address, "Street Address") %><br>
-            <%= text_field_tag('event[street_address]') %>
-          </p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col s12 m6 l6">
-          <p>
-            <%= label_tag(:city, "City") %><br>
-            <%= text_field_tag('event[city]') %>
-          </p>
-        </div>
-        <div class="col s12 m6 l6">
-          <p>
-            <%= label_tag(:state, "State") %><br>
-            <%= text_field_tag('event[state]') %>
-          </p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col s12 m6 l6">
-          <p>
-            <%= label_tag(:start_date, "Start Date") %><br>
-            <%= text_field_tag('start_date', '', class:'datepicker') %>
-          </p>
-        </div>
-        <div class="col s12 m6 l6">
-          <p>
-            <%= label_tag(:start_time, "Start Time") %><br>
-            <%= text_field_tag('start_time', '', class:'timepicker') %>
-          </p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col s12 m6 l6">
-          <p>
-            <%= label_tag(:end_date, "End Date") %><br>
-            <%= text_field_tag('end_date', '', :class =>'datepicker') %>
-          </p>
-        </div>
-        <div class="col s12 m6 l6">
-          <p>
-            <%= label_tag(:end_time, "End Time") %><br>
-            <%= text_field_tag('end_time', '', :class =>'timepicker') %>
-          </p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col s6">
-          <div class="pad-t-1">
-            <%= link_to 'Back', profile_path, :class => "waves-light waves-effect btn" %>
+  <div class="row">
+    <div class="col s9 pull-3">
+      <div class="card-panel">
+        <span class="card-title flow-text teal-text pad-s-3">Host a Pet</span>
+        <div class="row">
+          <div class="col s12">
+            <p>
+              <%= label_tag(:street_address, "Street Address") %><br>
+              <%= text_field_tag('event[street_address]') %>
+            </p>
           </div>
         </div>
 
-        <div class="col s6">
-          <p>
-            <%= button_tag('Host', :class => "waves-effect waves-light btn") %>
-          </p>
+        <div class="row">
+          <div class="col s12 m6 l6">
+            <p>
+              <%= label_tag(:city, "City") %><br>
+              <%= text_field_tag('event[city]') %>
+            </p>
+          </div>
+          <div class="col s12 m6 l6">
+            <p>
+              <%= label_tag(:state, "State") %><br>
+              <%= text_field_tag('event[state]') %>
+            </p>
+          </div>
         </div>
+
+        <div class="row">
+          <div class="col s12 m6 l6">
+            <p>
+              <%= label_tag(:start_date, "Start Date") %><br>
+              <%= text_field_tag('start_date', '', class:'datepicker') %>
+            </p>
+          </div>
+          <div class="col s12 m6 l6">
+            <p>
+              <%= label_tag(:start_time, "Start Time") %><br>
+              <%= text_field_tag('start_time', '', class:'timepicker') %>
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12 m6 l6">
+            <p>
+              <%= label_tag(:end_date, "End Date") %><br>
+              <%= text_field_tag('end_date', '', :class =>'datepicker') %>
+            </p>
+          </div>
+          <div class="col s12 m6 l6">
+            <p>
+              <%= label_tag(:end_time, "End Time") %><br>
+              <%= text_field_tag('end_time', '', :class =>'timepicker') %>
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s6">
+            <div class="pad-t-1">
+              <%= link_to 'Back', profile_path, :class => "waves-light waves-effect btn" %>
+            </div>
+          </div>
+
+          <div class="col s6">
+            <p>
+              <%= button_tag('Host', :class => "waves-effect waves-light btn") %>
+            </p>
+          </div>
+        </div>
+
       </div>
+    </div>
 
+    <div class="col s3 push-9">
+      <div class="pad-t-1">
+        <%= image_tag("light_bulb.gif", :alt => "light bulb", size: '30x30') %>
+        <span class="flow-text teal-text">Enter the Address for Pet Hosting</span>
+      </div>
     </div>
   </div>
-
-  <div class="col s3 push-9">
-    <div class="pad-t-1">
-      <%= image_tag("light_bulb.gif", :alt => "light bulb", size: '30x30') %>
-      <span class="flow-text teal-text">Enter the Address for Pet Hosting</span>
-    </div>
-  </div>
-</div>
+<% end %>
