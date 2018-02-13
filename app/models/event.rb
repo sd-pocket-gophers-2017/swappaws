@@ -10,21 +10,21 @@ class Event < ApplicationRecord
   scope :closed, -> { where( 'end_date_time < ?', DateTime.now ) }
   geocoded_by :full_street_address
   after_validation :geocode
-  # validates_presence_of :start_date, :end_date
-  #
-  # validate :end_date_is_after_start_date
+  validates_presence_of :start_date, :end_date
+
+  validate :end_date_is_after_start_date
 
   ########
   private
   ########
 
-  # def end_date_is_after_start_date
-  #   return if end_date.blank? || start_date.blank?
-  #   if end_date < start_date
-  #     errors.add(:end_date, "cannot be before start date")
-  #   end
-  # end
-  #
+  def end_date_is_after_start_date
+    return if end_date.blank? || start_date.blank?
+    if end_date < start_date
+      errors.add(:end_date, "cannot be before start date")
+    end
+  end
+  
   def full_street_address
     "#{street_address}, #{city}, #{state}"
   end

@@ -1,5 +1,7 @@
-<!--ERROR HANDLING  -->
 <%= form_tag('/events', method: 'post') do %>
+
+<%#= f.hidden_field :sitter_id, value: current_user.id %>
+ <%#= hidden_field_tag(:sitter_id, value: current_user.id) %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -13,7 +15,6 @@
       </ul>
     </div>
   <% end %>
-
 <!--Host a Pet form  -->
   <div class="row">
     <div class="col s9 pull-3">
