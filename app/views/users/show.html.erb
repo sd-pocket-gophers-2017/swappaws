@@ -1,29 +1,31 @@
 <div class="row">
-  <div class="col s12 m6 l4 offset-l1">
+  <div class="col s12">
     <h4 class="flow-text">Welcome, <%= current_user.first_name %></h4>
-    <%if current_user.profile_photo.exists? %>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12 m7 l6">
+    <% if current_user.profile_photo.exists? %>
       <p><%= image_tag current_user.profile_photo.url(:medium) %></p>
-        <% else %>
+    <% else %>
       <p><%= image_tag("default-user.png")%></p>
-        <% end %>
-        <%= form_for current_user do |f|%>
+    <% end %>
+    <%= form_for current_user do |f|%>
       <p>
         <%= f.label :profile_photo %>
         <%= f.file_field :profile_photo %>
       </p>
       <p>
-        <%= f.submit "Upload Photo", :class => "waves-effect waves-light btn" %>
-
+        <%= f.submit "Upload Photo", class: "waves-effect waves-light btn" %>
         <p>Bio: <%= current_user.bio %> </p>
-
       </p>
     <% end %>
   </div>
-  <div class="col s6 m6 l6">
+  <div class="col s12 m5">
     <p class="flow-text teal-text">Tokens remaining: <%= "\u{1f31f}" * current_user.tokens %></p>
-    <%= link_to('Purchase More Tokens', purchase_path, { :class => "waves-effect waves-light btn pad-b-2" }) %>
+    <%= link_to('Purchase More Tokens', purchase_path, { class: "waves-effect waves-light btn pad-b-2" }) %>
   </div>
-  <div class="col s12 m9 l6 offset-s1">
+  <div class="col s12 m5">
     <ul class="collapsible" data-collapsible="accordion">
       <li>
         <div class="collapsible-header">Request Confirmation</div>
@@ -57,8 +59,4 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col s12 m8 l8 offset-l1">
-    <%= render 'pets' %>
-  </div>
-</div>
+<%= render 'pets' %>

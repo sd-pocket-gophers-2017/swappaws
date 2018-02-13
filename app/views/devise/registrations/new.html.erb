@@ -1,7 +1,7 @@
 <div class="row pad-t-1">
-  <div class="col s12 m6 l6 offset-l1">
+  <div class="col s12 m10 l9">
     <div class="card-panel">
-      <h4 class="flow-text">Signup</h4>
+      <h4 class="flow-text teal-text">Signup</h4>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <div class="red-text small-font">
             <h6>
@@ -10,13 +10,13 @@
           </div>
           <div class="row">
             <div class="col s12 m6 l6">
-              <div class="field">
+              <div class="field input-field">
                 <%= f.label :first_name %><br />
                 <%= f.text_field :first_name, autofocus: true %>
               </div>
             </div>
             <div class="col s12 m6 l6">
-              <div class="field">
+              <div class="field input-field">
                 <%= f.label :last_name %><br />
                 <%= f.text_field :last_name, autofocus: true %>
               </div>
@@ -24,14 +24,8 @@
           </div>
 
           <div class="row">
-            <div class="col s12 m6 l6">
-              <div class="field">
-                <%= f.label :Tell_us_a_bit_about_yourself %><br />
-                <%= f.text_field :bio, autofocus: true %>
-              </div>
-            </div>
-            <div class="col s12 m6 l6">
-              <div class="field">
+            <div class="col s12">
+              <div class="field input-field">
                 <%= f.label :street_address %><br />
                 <%= f.text_field :street_address, autofocus: true %>
               </div>
@@ -40,13 +34,13 @@
 
           <div class="row">
             <div class="col s12 m6 l6">
-              <div class="field">
+              <div class="field input-field input-field">
                 <%= f.label :city %><br />
                 <%= f.text_field :city, autofocus: true %>
               </div>
             </div>
             <div class="col s12 m6 l6">
-              <div class="field">
+              <div class="field input-field">
                 <%= f.label :state %><br />
                 <%= f.text_field :state, autofocus: true %>
               </div>
@@ -54,8 +48,8 @@
           </div>
 
           <div class="row">
-            <div class="col s12 m12 l12">
-              <div class="field">
+            <div class="col s12">
+              <div class="field input-field">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true %>
               </div>
@@ -79,6 +73,15 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m6 l6">
+            <div class="field input-field">
+              <%= f.label :Tell_us_a_bit_about_yourself %><br />
+              <%= f.text_area :bio, autofocus: true, size: "30x30" %>
+            </div>
+          </div>
+        </div>
 
         <div class="actions waves-effect waves-light btn">
         <%= f.submit "Sign up" %>
@@ -87,7 +90,3 @@
   </div>
 <%#= render "devise/shared/links" %>
 </div>
-
-
-
-
